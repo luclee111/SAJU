@@ -1,4 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600&display=swap');
+/* 모든 요소에 대해 box-sizing 적용 */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 전체 페이지 부드러운 스크롤 */
+html {
+  scroll-behavior: smooth;
+}
 
 body, html {
   margin: 0;
@@ -771,6 +780,19 @@ body, html {
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch; /* iOS 부드러운 스크롤 */
   touch-action: pan-x; /* 터치 제스처 최적화 */
+  box-sizing: border-box;
+}
+
+/* 각 카드가 스냅 시 시작하도록 */
+.horizontal-scroll-container > .card {
+  scroll-snap-align: start;
+}
+
+/* PC 환경에서는 가로 스크롤 없이 보여주기 */
+@media (min-width: 1024px) {
+  .chart-container {
+    overflow-x: visible;
+  }
 }
 
 /* 커스텀 스크롤바 (웹킷 브라우저 전용) */
