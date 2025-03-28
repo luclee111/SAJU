@@ -631,7 +631,7 @@ const parameterDetails = {
     const ctaButtons = document.querySelectorAll('.cta-btn, .cta-secondary-btn');
     ctaButtons.forEach(btn => {
         btn.addEventListener('click', (e) => {
-            if (e.target.textContent.includes('사주 해석')) {
+            if (e.target.textContent.includes('한마디')) {
                 showRandomAction();
             } else {
                 alert('곧 업데이트 될 기능입니다!');
