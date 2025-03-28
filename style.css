@@ -692,6 +692,75 @@ body, html {
     }
 }
 
+
+/* Responsive (Mobile-first) Design */
+@media (min-width: 768px) {
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+    .card {
+        padding: 25px;
+    }
+    .card-header h3 {
+        font-size: 1.5rem;
+    }
+    .card-content {
+        font-size: 1rem;
+    }
+    .section-title {
+        font-size: 2rem;
+    }
+    .guidance-card .split-content {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .guidance-column {
+        width: 48%;
+        margin-bottom: 0;
+    }
+}
+
+@media (min-width: 1024px) {
+    .card-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+  .chart-container {
+    overflow-x: visible;
+  }
+}
+
+/* Crown Chart Responsive Styles */
+#crown-chart {
+  min-height: auto;
+  padding: 60px 20px;
+  background-color: #fff;
+  color: #2c3e50;
+}
+
+#crown-chart h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.chart-container {
+  overflow-x: auto;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.chart-container svg {
+  width: 1000px;
+  height: 1000px;
+}
+
+
+
+
 /* 스크롤 컨테이너 내에서만 가로 스크롤 구현 */
 .horizontal-scroll-container {
   display: flex;
