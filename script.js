@@ -26,6 +26,15 @@ gsap.utils.toArray("section").forEach(section => {
   });
 });
 
+// 페이지 로드 시 및 창 크기 변경 시, 실제 뷰포트 높이를 CSS 변수로 설정합니다.
+function setVh() {
+  // window.innerHeight는 툴바 등을 제외한 실제 뷰포트 높이입니다.
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+window.addEventListener('resize', setVh);
+window.addEventListener('load', setVh);
+
 // ------------------- 왕관 차트 관련 JavaScript -------------------
 
 // 파라미터 데이터 (이름, 레벨, 서브 텍스트, 아이콘 경로)
