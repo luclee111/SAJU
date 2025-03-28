@@ -19,7 +19,10 @@ body, html {
 }
 
 header {
-  height: 100vh;
+   /* 기존 height: 100vh; 대신 아래와 같이 변경 */
+  height: calc(var(--vh, 1vh) * 100);
+  padding-top: env(safe-area-inset-top);   /* 아이폰 노치 영역 고려 */
+  padding-bottom: env(safe-area-inset-bottom);
   display: flex;
   flex-direction: column;
   justify-content: center;
