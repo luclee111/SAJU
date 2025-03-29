@@ -828,7 +828,7 @@ body, html {
   
   /* 카드 스타일 수정 - 클래스명은 실제 사용 중인 것으로 변경해주세요 */
   .horizontal-scroll-container > * {
-    flex: 0 0 90%; /* 카드 너비를 화면의 90%로 설정 */
+    flex: 0 0 70%; /* 카드 너비를 화면의 90%로 설정 */
     scroll-snap-align: center; /* 스크롤 시 중앙에 맞춤 */
   }
   
@@ -836,7 +836,11 @@ body, html {
   .horizontal-scroll-container:before {
     content: '';
     flex: 0 0 5%; /* 왼쪽 여백 */
-    min-width: 5%;
+    min-width: 10%;
+  }
+  .horizontal-scroll-container {
+    justify-content: center; /* 가운데 정렬 */
+    padding: 10px 0; /* 패딩 축소 */
   }
 }
 
@@ -867,7 +871,7 @@ body, html {
 }
 
 .horizontal-scroll-container::-webkit-scrollbar-thumb {
-  background: #888;
+  background-color: rgba(0, 0, 0, 0.2);
   border-radius: 4px;
 }
 
