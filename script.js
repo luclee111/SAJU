@@ -683,19 +683,26 @@ const parameterDetails = {
 // 페이지 로드 시 첫 번째 카드를 중앙에 배치
 document.addEventListener('DOMContentLoaded', function() {
   if (window.innerWidth <= 768) {
-    const scrollContainer = document.querySelector('.horizontal-scroll-container');
-    const firstCard = scrollContainer.children[0];
+    const container = document.querySelector('.horizontal-scroll-container');
     
-    if (scrollContainer && firstCard) {
-      // 첫 번째 카드가 중앙에 오도록 스크롤 위치 계산
-      const containerWidth = scrollContainer.clientWidth;
-      const cardWidth = firstCard.clientWidth;
-      const scrollLeft = (cardWidth - containerWidth) / 2;
-      
-      // 약간의 지연 후 스크롤 적용 (레이아웃이 완전히 계산된 후)
-      setTimeout(function() {
-        scrollContainer.scrollLeft = scrollLeft;
-      }, 100);
-    }
+    // 스크롤 안내 표시 추가
+    const indicator = document.createElement('div');
+    indicator.className = 'scroll-indicator';
+    indicator.innerHTML = '👉 옆으로 스크롤하세요 👈';
+    container.parentNode.insertBefore(indicator, container);
+    
+    // 카드가 올바르게 표시되도록 레이아웃 조정
+    // 약간 지연시켜 DOM이 완전히 로드된 후 실행
+    setTimeout(() => {
+      const firstCard = container.querySelector(':first-child');
+      if (firstCard) {
+        const containerWidth = container.offsetWidth;
+        const cardWidth = firstCard.offsetWidth;
+        
+        // 가운데 정렬을 위한 스크롤 위치 계산
+        const scrollTo = (cardWidth - containerWidth) / 2;
+        container.scrollLeft = Math.max(0, scrollTo);
+      }
+    }, 300);
   }
 });
