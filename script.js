@@ -35,6 +35,17 @@ function setVh() {
 window.addEventListener('resize', setVh);
 window.addEventListener('load', setVh);
 
+window.onload = function() {
+  // 페이지 로드 시 헤더로 스크롤
+  window.scrollTo(0, 0);
+  
+  // 헤더 요소들의 애니메이션 활성화 (기존 opacity: 0 문제 해결)
+  document.querySelectorAll('header > *').forEach(function(element) {
+    element.style.opacity = '1';
+    element.style.transform = 'translateY(0)';
+    element.style.transition = 'opacity 0.5s, transform 0.5s';
+  });
+};
 // ------------------- 왕관 차트 관련 JavaScript -------------------
 
 // 파라미터 데이터 (이름, 레벨, 서브 텍스트, 아이콘 경로)
