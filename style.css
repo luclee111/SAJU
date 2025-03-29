@@ -798,7 +798,7 @@ body, html {
 .horizontal-scroll-container {
   display: flex;
   overflow-x: auto;
-  overflow-y:visible;
+  overflow-y: visible;
   gap: 20px;
   padding: 20px 0 20px 0; /* 상단과 하단에 20px의 패딩 추가 */
   scroll-snap-type: x mandatory;
@@ -816,6 +816,44 @@ body, html {
 @media (min-width: 1024px) {
   .chart-container {
     overflow-x: visible;
+  }
+}
+
+/* 기존 코드는 유지하고, 모바일 환경에서만 적용되는 미디어 쿼리 추가 */
+@media screen and (max-width: 768px) {
+  .horizontal-scroll-container {
+    padding: 20px 5% 20px 5%; /* 좌우 패딩을 퍼센트로 변경 */
+    scroll-padding: 0 5%; /* 스크롤 스냅 위치 조정 */
+  }
+  
+  /* 카드 스타일 수정 - 클래스명은 실제 사용 중인 것으로 변경해주세요 */
+  .horizontal-scroll-container > * {
+    flex: 0 0 90%; /* 카드 너비를 화면의 90%로 설정 */
+    scroll-snap-align: center; /* 스크롤 시 중앙에 맞춤 */
+  }
+  
+  /* 첫 번째 카드가 처음에 중앙에 오도록 설정 */
+  .horizontal-scroll-container:before {
+    content: '';
+    flex: 0 0 5%; /* 왼쪽 여백 */
+    min-width: 5%;
+  }
+}
+
+/* 스크롤 힌트 스타일 */
+@media screen and (max-width: 768px) {
+  .scroll-hint {
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes pulse {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
   }
 }
 
