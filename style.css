@@ -44,7 +44,7 @@ header {
 
 /* 헤더 자체에 대한 스타일 - 고정 위치와 z-index 설정 */
 header {
-  position: sticky;
+  position: relative;
   top: 0;
   z-index: 1000;
   width: 100%;
