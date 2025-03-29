@@ -679,3 +679,23 @@ const parameterDetails = {
         cardObserver.observe(card);
     });
 });
+
+// 페이지 로드 시 첫 번째 카드를 중앙에 배치
+document.addEventListener('DOMContentLoaded', function() {
+  if (window.innerWidth <= 768) {
+    const scrollContainer = document.querySelector('.horizontal-scroll-container');
+    const firstCard = scrollContainer.children[0];
+    
+    if (scrollContainer && firstCard) {
+      // 첫 번째 카드가 중앙에 오도록 스크롤 위치 계산
+      const containerWidth = scrollContainer.clientWidth;
+      const cardWidth = firstCard.clientWidth;
+      const scrollLeft = (cardWidth - containerWidth) / 2;
+      
+      // 약간의 지연 후 스크롤 적용 (레이아웃이 완전히 계산된 후)
+      setTimeout(function() {
+        scrollContainer.scrollLeft = scrollLeft;
+      }, 100);
+    }
+  }
+});
