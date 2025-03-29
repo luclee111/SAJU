@@ -7,6 +7,9 @@
   
   <!-- 구글 폰트: Noto Serif KR -->
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR&display=swap" rel="stylesheet">
+
+  <!-- Swiper.js CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
   
   <!-- 사용자 스타일시트 -->
   <link rel="stylesheet" href="style.css">
@@ -340,97 +343,64 @@
             
             <!-- 개운법 & 피해야 할 것들 섹션 -->
         <h2 class="section-title">개운법 및 주의사항</h2>
-          <!-- 스크롤 컨테이너 바로 위에 추가 -->
-        <div class="scroll-hint">👈 좌우로 스크롤하세요 👉</div>
-        <div class="horizontal-scroll-container">
-            <div class="card guidance-card">
-                <div class="card-header">
-                    <span class="card-icon">🔥</span>
-                    <h3>함께해요</h3>
-                </div>
-                <div class="card-content split-content">
-                    <div class="guidance-column">
-                    <h4><span style="color: green;">목(木) 에너지</h4>
-                        <ul>
-                            <li>📚 독서, 자기계발</li>
-                            <li>🍀 식물과 함께</li>
-                            <li>💚 초록/청색계열</li>
-                            <li>🌅 동쪽</li>
-                        </ul>
-                    </div>
-                    <div class="guidance-column">
-                        <h4><span style="color: red;">화(火) 에너지</h4>
-                        <ul>
-                            <li>🏃‍♂️ 유산소 운동</li>
-                            <li>🕯 따뜻한 조명</li>
-                            <li>❤️ 붉은색계열</li>
-                            <li>☀️ 남쪽</li>
-                        </ul>
-                    </div>
-                </div>
+         <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <!-- Slide 1 -->
+        <div class="swiper-slide">
+          <div class="card guidance-card">
+            <div class="card-header">
+              <span class="card-icon">🔥</span>
+              <h3>함께해요</h3>
             </div>
-
-            <div class="card avoidance-card">
-                <div class="card-header">
-                    <span class="card-icon">🚫</span>
-                    <h3>멀리해요</h3>
-                </div>
-                <div class="card-content">
-                    <ul>
-                        <li>💢 과도한 감정적 억제</li>
-                        <li>⚔️ 무의미한 갈등 지속</li>
-                        <li>😰 변화에 대한 두려움</li>
-                        <li>🧊 찬물,아이스커피 </li>
-                    </ul>
-                </div>
+            <div class="card-content split-content">
+              <div class="guidance-column">
+                <h4><span style="color: green;">목(木) 에너지</h4>
+                <ul>
+                  <li>📚 독서, 자기계발</li>
+                  <li>🍀 식물과 함께</li>
+                  <li>💚 초록/청색계열</li>
+                  <li>🌅 동쪽</li>
+                </ul>
+              </div>
+              <div class="guidance-column">
+                <h4><span style="color: red;">화(火) 에너지</h4>
+                <ul>
+                  <li>🏃‍♂️ 유산소 운동</li>
+                  <li>🕯 따뜻한 조명</li>
+                  <li>❤️ 붉은색계열</li>
+                  <li>☀️ 남쪽</li>
+                </ul>
+              </div>
             </div>
-
-            <div class="card health-card">
-                <div class="card-header">
-                    <span class="card-icon">❤️</span>
-                    <h3>주의 증상</h3>
-                </div>
-                <div class="card-content">
-                    <ul>
-                        <li>🩸 순환기 불균형</li>
-                        <li>😰 스트레스 축적</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="card health-card">
-                <div class="card-header">
-                    <span class="card-icon">🌈</span>
-                    <h3>회복 습관</h3>
-                </div>
-                <div class="card-content">
-                    <ul>
-                        <li>🌞 매일 햇볕 쬐기</li>
-                        <li>🏃 규칙적 운동</li>
-                        <li>🧘 명상 실천</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="card health-card">
-                <div class="card-header">
-                    <span class="card-icon">🍎</span>
-                    <h3>추천 음식</h3>
-                </div>
-                <div class="card-content">
-                    <ul>
-                        <li>🍵 생강차</li>
-                        <li>🧄 마늘</li>
-                        <li>🥬 녹색 채소</li>
-                    </ul>
-                </div>
-            </div>
+          </div>
         </div>
-               
-            
-        </section>
-     
-   
+        <!-- Slide 2 -->
+        <div class="swiper-slide">
+          <div class="card avoidance-card">
+            <div class="card-header">
+              <span class="card-icon">🚫</span>
+              <h3>멀리해요</h3>
+            </div>
+            <div class="card-content">
+              <ul>
+                <li>💢 과도한 감정적 억제</li>
+                <li>⚔️ 무의미한 갈등 지속</li>
+                <li>😰 변화에 대한 두려움</li>
+                <li>🧊 찬물, 아이스커피</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- 추가 슬라이드는 기존 컨텐츠에 맞게 추가 -->
+      </div>
+      <!-- Add Pagination -->
+      <div class="swiper-pagination"></div>
+      <!-- Add Navigation -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      </div>
+     </div>
+    </section>
        
         <!-- 마무리 내러티브 섹션 -->
         <section class="final-narrative">
@@ -456,6 +426,9 @@
   <!-- 외부 JS 라이브러리: GSAP와 ScrollTrigger -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <!-- Swiper.js JS -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   
   <!-- 사용자 작성 스크립트 -->
   <script src="script.js"></script>
