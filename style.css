@@ -822,6 +822,7 @@ body, html {
   transition: .3s opacity;
   transform: translate3d(0, 0, 0);
   z-index: 10;
+  
   /* 페이지네이션 색상과 위치 추가 */
   bottom: 10px;
   left: 0;
@@ -908,4 +909,13 @@ body, html {
 
 .horizontal-scroll-container::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+/* style.css 파일의 맨 아래에 추가 */
+.swiper-pagination-bullet {
+  background-color: #d3d3d3; /* 옅은 회색 */
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #a9a9a9; /* 활성화된 페이지네이션 색상 */
 }
