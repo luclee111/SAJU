@@ -50,11 +50,11 @@ window.onload = function() {
 
 // 파라미터 데이터 (이름, 레벨, 서브 텍스트, 아이콘 경로)
 const parameters = [
-  { name: '자립성', level: 1, sub: '평화주의자', hoverSub:'프로 눈치러', iconUrl: 'https://imgur.com/4SjZdeE.png' },
-  { name: '표현력', level: 4, sub: '스트리머', hoverSub:'허언증 초기', iconUrl: 'https://imgur.com/hvrtbso.png' },
-  { name: '현실적', level: 2, sub: '성실한 월급쟁이', hoverSub:'짠돌이',  iconUrl: 'https://imgur.com/6Okot6A.png' },
-  { name: '책임감', level: 2, sub: '무난이 모범생', hoverSub:'아마추어 월루',  iconUrl: 'https://imgur.com/rjdzDsE.png' },
-  { name: '사고력', level: 3, sub: '지식인 바이브', hoverSub:'걱정인형',  iconUrl: 'https://imgur.com/jOFnc6i.png' },
+  { name: '자립성', level: 1, sub: '평화주의자', hoverSub:'프로 눈치러', iconUrl: '.images/Palja_Param_Icon_Bigeop.png' },
+  { name: '표현력', level: 4, sub: '스트리머', hoverSub:'허언증 초기', iconUrl: '.images/Palja_Param_Icon_Siksang.png' },
+  { name: '현실적', level: 2, sub: '성실한 월급쟁이', hoverSub:'짠돌이',  iconUrl: '.images/Palja_Param_Icon_Jaesung.png' },
+  { name: '책임감', level: 2, sub: '무난이 모범생', hoverSub:'아마추어 월루',  iconUrl: '.images/Palja_Param_Icon_Gwansung.png' },
+  { name: '사고력', level: 3, sub: '지식인 바이브', hoverSub:'걱정인형',  iconUrl: '.images/Palja_Param_Icon_Inseong.png' },
 ];
 
 // 파라미터 라벨 그룹에 hover 이벤트 추가 함수
