@@ -695,6 +695,8 @@ document.addEventListener('DOMContentLoaded', function () {
     },
   });
 });
+
+document.addEventListener('DOMContentLoaded', function () {
   var opportunitiesSwiper = new Swiper('.opportunities-swiper', {
     slidesPerView: 1,
     spaceBetween: 10,
