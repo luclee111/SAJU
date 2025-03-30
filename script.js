@@ -35,7 +35,7 @@ function setVh() {
 window.addEventListener('resize', setVh);
 window.addEventListener('load', setVh);
 
-document.addEventListener('DOMContentLoaded', function() {
+window.onload = function() {
   // 페이지 로드 시 헤더로 스크롤
   window.scrollTo(0, 0);
   
