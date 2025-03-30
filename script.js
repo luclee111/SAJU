@@ -724,4 +724,18 @@ document.addEventListener('DOMContentLoaded', function () {
       prevEl: '.swiper-button-prev',
     },
   });
+  
+  var swiper = new Swiper('.opportunities-swiper', {
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+  });
+
+  var swiper = new Swiper('.challenges-swiper', {
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+  });
 });
