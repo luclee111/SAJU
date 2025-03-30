@@ -752,6 +752,12 @@ body, html {
   header p, header a {
     font-size: calc(0.8rem + 0.5vw);
   }
+  narrative-card h2 {
+    font-size: calc(1.5rem + 1vw); /* 화면 크기에 따라 조정됨 */
+  }
+  narrative-description {
+    font-size: calc(0.8rem + 0.5vw);
+  }
 }
 
 @media (min-width: 768px) {
