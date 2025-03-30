@@ -815,19 +815,38 @@ body, html {
   align-items: center;
 }
 
-/* 페이지네이션 스타일 확인 */
-.swiper-pagination {
-  position: absolute;
-  text-align: center;
-  transition: .3s opacity;
-  transform: translate3d(0, 0, 0);
-  z-index: 10;
-  
-  /* 페이지네이션 색상과 위치 추가 */
-  bottom: 10px;
-  left: 0;
+/* General swiper container styles */
+.swiper-container {
   width: 100%;
-  color: #fff;
+  margin-bottom: 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Make sure pagination is visible */
+.swiper-pagination {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  display: inline-block;
+  border-radius: 50%;
+  background: #ccc;
+  margin: 0 5px;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+  background: #f39c12; /* 활성 페이지네이션 도트 색상 */
 }
 
 .card {
@@ -837,6 +856,11 @@ body, html {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   background-color: #fff;
+}
+
+/* Ensure all swiper-slide elements have proper sizing */
+.swiper-slide {
+  height: auto;
 }
 
 .guidance-card .card-content,
@@ -909,13 +933,4 @@ body, html {
 
 .horizontal-scroll-container::-webkit-scrollbar-thumb:hover {
   background: #555;
-}
-
-/* style.css 파일의 맨 아래에 추가 */
-.swiper-pagination-bullet {
-  background-color: #d3d3d3; /* 옅은 회색 */
-}
-
-.swiper-pagination-bullet-active {
-  background-color: #a9a9a9; /* 활성화된 페이지네이션 색상 */
 }
