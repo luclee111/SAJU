@@ -793,7 +793,7 @@ body, html {
 
 .chart-container {
   overflow-x: auto;
-  overflow-y: auto;
+  overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
   width: 100%;
 }
