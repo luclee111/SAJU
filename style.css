@@ -657,6 +657,7 @@ body, html {
     justify-content: center;
     gap: 20px;
     margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .cta-btn, .cta-secondary-btn {
