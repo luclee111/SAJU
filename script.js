@@ -712,7 +712,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 //swiper.js 초기화//
 document.addEventListener('DOMContentLoaded', function () {
-  var swiper = new Swiper('.swiper-container', {
+  var opportunitiesSwiper = new Swiper('.opportunities-swiper', {
     slidesPerView: 1,
     spaceBetween: 10,
     pagination: {
@@ -724,18 +724,30 @@ document.addEventListener('DOMContentLoaded', function () {
       prevEl: '.swiper-button-prev',
     },
   });
-  
-  var swiper = new Swiper('.opportunities-swiper', {
+
+  var challengesSwiper = new Swiper('.challenges-swiper', {
+    slidesPerView: 1,
+    spaceBetween: 10,
     pagination: {
       el: '.swiper-pagination',
       clickable: true,
     },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
   });
 
-  var swiper = new Swiper('.challenges-swiper', {
+  var guidanceSwiper = new Swiper('.fortune-cards-container .swiper-container', {
+    slidesPerView: 1,
+    spaceBetween: 10,
     pagination: {
       el: '.swiper-pagination',
       clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
     },
   });
 });
