@@ -711,43 +711,59 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 //swiper.js 초기화//
-document.addEventListener('DOMContentLoaded', function () {
-  var opportunitiesSwiper = new Swiper('.opportunities-swiper', {
+// Initialize each Swiper with unique pagination selectors
+document.addEventListener('DOMContentLoaded', function() {
+  // Opportunities Swiper
+  const opportunitiesSwiper = new Swiper('.opportunities-swiper', {
     slidesPerView: 1,
-    spaceBetween: 10,
+    spaceBetween: 20,
     pagination: {
-      el: '.swiper-pagination',
+      el: '.opportunities-swiper .swiper-pagination',
       clickable: true,
     },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
+    breakpoints: {
+      640: {
+        slidesPerView: 2,
+      },
+      1024: {
+        slidesPerView: 3,
+      }
+    }
   });
-
-  var challengesSwiper = new Swiper('.challenges-swiper', {
+  
+  // Challenges Swiper
+  const challengesSwiper = new Swiper('.challenges-swiper', {
     slidesPerView: 1,
-    spaceBetween: 10,
+    spaceBetween: 20,
     pagination: {
-      el: '.swiper-pagination',
+      el: '.challenges-swiper .swiper-pagination',
       clickable: true,
     },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
+    breakpoints: {
+      640: {
+        slidesPerView: 2,
+      },
+      1024: {
+        slidesPerView: 3,
+      }
+    }
   });
-
-  var guidanceSwiper = new Swiper('.fortune-cards-container .swiper-container', {
+  
+  // Guidance Swiper (already working)
+  const guidanceSwiper = new Swiper('.swiper-container', {
     slidesPerView: 1,
-    spaceBetween: 10,
+    spaceBetween: 20,
     pagination: {
-      el: '.swiper-pagination',
+      el: '.swiper-container .swiper-pagination',
       clickable: true,
     },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
+    breakpoints: {
+      640: {
+        slidesPerView: 2,
+      },
+      1024: {
+        slidesPerView: 3,
+      }
+    }
   });
 });
