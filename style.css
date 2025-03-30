@@ -624,6 +624,7 @@ body, html {
 .final-narrative {
     display: flex;
     justify-content: center;
+    padding: 10px 5%;
 }
 
 .narrative-card {
