@@ -46,6 +46,7 @@ window.onload = function() {
     element.style.transition = 'opacity 0.5s, transform 0.5s';
   });
 };
+
 // ------------------- 왕관 차트 관련 JavaScript -------------------
 
 // 파라미터 데이터 (이름, 레벨, 서브 텍스트, 아이콘 경로)
