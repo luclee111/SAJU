@@ -185,11 +185,12 @@ const detailMapping = {
   }
 };
 
+//여기다가 점수 입력하면 댐
 const parameters = [
   { name: '자립성', a: 1, b: 0, sub: '', hoverSub: '', iconUrl: './images/Palja_Param_Icon_Bigeop.png' },
-  { name: '표현력', a: 2, b: 2, sub: '', hoverSub: '', iconUrl: './images/Palja_Param_Icon_Siksang.png' },
-  { name: '현실적', a: 1, b: 1, sub: '', hoverSub: '', iconUrl: './images/Palja_Param_Icon_Jaesung.png' },
-  { name: '책임감', a: 1, b: 1, sub: '', hoverSub: '', iconUrl: './images/Palja_Param_Icon_Gwansung.png' },
+  { name: '표현력', a: 4, b: 0, sub: '', hoverSub: '', iconUrl: './images/Palja_Param_Icon_Siksang.png' },
+  { name: '현실적', a: 0, b: 2, sub: '', hoverSub: '', iconUrl: './images/Palja_Param_Icon_Jaesung.png' },
+  { name: '책임감', a: 0, b: 2, sub: '', hoverSub: '', iconUrl: './images/Palja_Param_Icon_Gwansung.png' },
   { name: '사고력', a: 1, b: 2, sub: '', hoverSub: '', iconUrl: './images/Palja_Param_Icon_Inseong.png' },
 ];
 
