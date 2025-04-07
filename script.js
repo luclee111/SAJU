@@ -49,14 +49,64 @@ window.onload = function() {
 
 // ------------------- 왕관 차트 관련 JavaScript -------------------
 
+const subHoverSubMapping = {
+  '자립성': {
+    0: { sub: '부드러운 YES맨', hoverSub: '줏대제로' },
+    1: { sub: '평화주의자', hoverSub: '프로 눈치러' },
+    2: { sub: '온화한 주체', hoverSub: '약간의 고집' },
+    3: { sub: '나만의 스타일러', hoverSub: '적당한 고집' },
+    4: { sub: '독립 선언자', hoverSub: '강한 고집' },
+    5: { sub: '자립왕', hoverSub: '고집불통' }
+  },
+  '표현력': {
+    0: { sub: '내성적인', hoverSub: '말없는' },
+    1: { sub: '조용한', hoverSub: '말수 적은' },
+    2: { sub: '표현력 있는', hoverSub: '적당한 말솜씨' },
+    3: { sub: '말 잘하는', hoverSub: '화려한 말솜씨' },
+    4: { sub: '스트리머', hoverSub: '허언증 초기' },
+    5: { sub: '말쟁이', hoverSub: '허언증 말기' }
+  },
+  '현실적': {
+    0: { sub: '이상주의자', hoverSub: '비현실적' },
+    1: { sub: '꿈꾸는', hoverSub: '비현실적' },
+    2: { sub: '현실적인', hoverSub: '약간의 현실감' },
+    3: { sub: '실용주의자', hoverSub: '현실감각' },
+    4: { sub: '성공적인', hoverSub: '실용적' },
+    5: { sub: '현실왕', hoverSub: '극실용주의자' }
+  },
+  '책임감': {
+    0: { sub: '무책임한', hoverSub: '책임회피' },
+    1: { sub: '약한 책임감', hoverSub: '책임미약' },
+    2: { sub: '기본적인 책임감', hoverSub: '적당한 책임감' },
+    3: { sub: '책임 있는', hoverSub: '책임감' },
+    4: { sub: '책임자', hoverSub: '강한 책임감' },
+    5: { sub: '책임왕', hoverSub: '책임의 화신' }
+  },
+  '사고력': {
+    0: { sub: '비논리적', hoverSub: '생각없음' },
+    1: { sub: '약한 사고력', hoverSub: '적은 생각' },
+    2: { sub: '평범한 사고력', hoverSub: '적당한 생각' },
+    3: { sub: '논리적인', hoverSub: '적당한 논리' },
+    4: { sub: '지혜로운', hoverSub: '많은 생각' },
+    5: { sub: '사고왕', hoverSub: '생각의 화신' }
+  }
+};
+
 // 파라미터 데이터 (이름, 레벨, 서브 텍스트, 아이콘 경로)
 const parameters = [
-  { name: '자립성', level: 1, sub: '평화주의자', hoverSub:'프로 눈치러', iconUrl: './images/Palja_Param_Icon_Bigeop.png' },
-  { name: '표현력', level: 4, sub: '스트리머', hoverSub:'허언증 초기', iconUrl: './images/Palja_Param_Icon_Siksang.png' },
-  { name: '현실적', level: 2, sub: '성실한 월급쟁이', hoverSub:'짠돌이',  iconUrl: './images/Palja_Param_Icon_Jaesung.png' },
-  { name: '책임감', level: 2, sub: '무난이 모범생', hoverSub:'아마추어 월루',  iconUrl: './images/Palja_Param_Icon_Gwansung.png' },
-  { name: '사고력', level: 3, sub: '지식인 바이브', hoverSub:'걱정인형',  iconUrl: './images/Palja_Param_Icon_Inseong.png' },
+  { name: '자립성', a: 1, b: 0, sub: '', hoverSub: '', iconUrl: './images/Palja_Param_Icon_Bigeop.png' },
+  { name: '표현력', a: 2, b: 2, sub: '', hoverSub: '', iconUrl: './images/Palja_Param_Icon_Siksang.png' },
+  { name: '현실적', a: 1, b: 1, sub: '', hoverSub: '', iconUrl: './images/Palja_Param_Icon_Jaesung.png' },
+  { name: '책임감', a: 1, b: 1, sub: '', hoverSub: '', iconUrl: './images/Palja_Param_Icon_Gwansung.png' },
+  { name: '사고력', a: 1, b: 2, sub: '', hoverSub: '', iconUrl: './images/Palja_Param_Icon_Inseong.png' },
 ];
+
+parameters.forEach(param => {
+  param.level = param.a + param.b;
+  const mapping = subHoverSubMapping[param.name][param.level];
+  param.sub = mapping.sub;
+  param.hoverSub = mapping.hoverSub;
+});
 
 // 파라미터 라벨 그룹에 hover 이벤트 추가 함수
 function addHoverEffectToParamLabels() {
