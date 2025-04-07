@@ -202,10 +202,10 @@ parameters.forEach(param => {
 
   // Set parameter details
   param.details = {
-    detail1: `a 점수: ${param.a}, ${detailMapping[param.name].a[param.a].detail}`,
-    detail2: `b 점수: ${param.b}, ${detailMapping[param.name].b[param.b].detail}`,
-    summary: `a 점수의 발전방향: ${detailMapping[param.name].a[param.a].summary}, b 점수의 발전방향: ${detailMapping[param.name].b[param.b].summary}`,
-    summary2: `a 점수의 실천예시: ${detailMapping[param.name].a[param.a].summary2}, b 점수의 실천예시: ${detailMapping[param.name].b[param.b].summary2}`
+    detail1: `점수: ${param.a}, ${detailMapping[param.name].a[param.a].detail}`,
+    detail2: `점수: ${param.b}, ${detailMapping[param.name].b[param.b].detail}`,
+    summary: `${detailMapping[param.name].a[param.a].summary}, ${detailMapping[param.name].b[param.b].summary}`,
+    summary2: `${detailMapping[param.name].a[param.a].summary2}, ${detailMapping[param.name].b[param.b].summary2}`
   };
 });
 
