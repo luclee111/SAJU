@@ -253,7 +253,7 @@ document.addEventListener('DOMContentLoaded', addHoverEffectToParamLabels);
 
 // SVG 크기 및 베이스 설정
 const svgW = 1100, svgH = 800;
-const centerX = 700;      // 450
+const centerX = 650;      // 450
 const centerY = 470;           // y=410
 const baseRadius = 180;        // 베이스 원 반지름
 const maxSpikeLength = 200;    // 최대 스파이크 길이 (레벨5)
