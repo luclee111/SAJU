@@ -657,12 +657,12 @@ const parameterDetails = parameters.reduce((acc, param) => {
         content: `⭐ ${details.score} / 5점`
       },
       {
-        title: '정(正)',
+        title: '정(正): 안정적',
         type: 'paragraph',
         content: details.detail1
       },
       {
-        title: '편(偏)',
+        title: '편(偏): 창의적',
         type: 'paragraph',
         content: details.detail2
       },
