@@ -995,7 +995,7 @@ body, html {
 
   .nav-line {
     position: absolute;
-    left: 4px; /* 점의 중앙에 맞춤 */
+    left: 6px; /* 점의 중앙에 맞춤 */
     top: 0;
     width: 1px;
     height: 100%;
@@ -1003,11 +1003,54 @@ body, html {
     z-index: -1;
   }
 
+/* 섹션별 스타일 */
+.nav-birthchart .nav-link,
+.nav-birthchart .nav-dot,
+.nav-birthchart .nav-line {
+    color: #ffffff; /* 텍스트 색상 */
+    background-color: #ffffff; /* 도트와 라인 색상 */
+}
+
+.nav-daewoon .nav-link,
+.nav-daewoon .nav-dot,
+.nav-daewoon .nav-line {
+    color: #ffffff;
+    background-color: #ffffff;
+}
+
+.nav-sewoon .nav-link,
+.nav-sewoon .nav-dot,
+.nav-sewoon .nav-line {
+    color: #ffffff;
+    background-color: #ffffff;
+}
+
+/* 섹션별 스타일 */
+.nav-birthchart .nav-link,
+.nav-birthchart .nav-dot,
+.nav-birthchart .nav-line {
+    color: #ffffff; /* 텍스트 색상 */
+    background-color: #ffffff; /* 도트와 라인 색상 */
+}
+
+.nav-daewoon .nav-link,
+.nav-daewoon .nav-dot,
+.nav-daewoon .nav-line {
+    color: #ffffff;
+    background-color: #ffffff;
+}
+
+.nav-sewoon .nav-link,
+.nav-sewoon .nav-dot,
+.nav-sewoon .nav-line {
+    color: #ffffff;
+    background-color: #ffffff;
+}
+
   /* 호버 효과 */
   .nav-item:not(.active):hover .nav-text {
     opacity: 1;
   }
-
 
   
   /* 모바일 반응형 설정 */
