@@ -1026,9 +1026,9 @@ body, html {
 }
 
 /* 섹션별 스타일 */
-.nav-birthchart .nav-link,
-.nav-birthchart .nav-dot,
-.nav-birthchart .nav-line {
+.nav-birth-chart .nav-link,
+.nav-birth-chart .nav-dot,
+.nav-birth-chart .nav-line {
     color: #ffffff; /* 텍스트 색상 */
     background-color: #ffffff; /* 도트와 라인 색상 */
 }
