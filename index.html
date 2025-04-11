@@ -48,7 +48,7 @@
             <span class="nav-text">상세</span>
           </a>
         </li>
-        <li class="nav-item" data-section="fortune-cards">
+        <li class="nav-item" data-section="fortune-cards-container">
           <a href="#detailed-analysis" class="nav-link">
             <span class="nav-dot"></span>
             <span class="nav-text">카드요약</span>
@@ -319,7 +319,7 @@
     </div>
   </section>
 
-     <div class="fortune-cards-container" id="fortune-cards">
+     <div class="fortune-cards-container">
         <!-- 운세 요약 카드 섹션 -->
         <section class="fortune-summary">
            <h2 class="section-title">2025 기회의 순간</h2>
@@ -551,7 +551,7 @@
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         // 모든 섹션 요소와 네비게이션 항목
-        const sections = document.querySelectorAll('section, header');
+        const sections = document.querySelectorAll('section, header, .fortune-cards-container');
         const navItems = document.querySelectorAll('.sidebar-navigation .nav-item');
         
         // 네비게이션 링크 클릭 이벤트 처리
@@ -600,7 +600,14 @@
           sections.forEach(section => {
             const sectionTop = section.offsetTop - 100; // 약간의 오프셋
             const sectionHeight = section.offsetHeight;
-            const sectionId = section.id || (section.tagName.toLowerCase() === 'header' ? 'header' : '');
+            let sectionId = section.id;
+              if (!sectionId) {
+                if (section.tagName.toLowerCase() === 'header') {
+                  sectionId = 'header';
+                } else if (section.classList.contains('fortune-cards-container')) {
+                  sectionId = 'fortune-cards-container';
+                }
+              }
             
             // 현재 스크롤 위치가 해당 섹션 내에 있는지 확인
             if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
