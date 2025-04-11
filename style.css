@@ -977,9 +977,9 @@ body, html {
 }
 
   .nav-text {
-    opacity: 0.7;
+    opacity: 0.9;
     transition: all 0.3s ease;
-    
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* 텍스트 그림자 */
   }
 
   .nav-item.active .nav-dot {
@@ -995,6 +995,7 @@ body, html {
     font-size: 20px;
     font-weight: 500;
     opacity: 1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* 텍스트 그림자 */
   }
 
   .nav-line {
