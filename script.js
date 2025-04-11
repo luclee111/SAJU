@@ -892,3 +892,34 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+
+// nav 색깔변화
+document.addEventListener("DOMContentLoaded", function () {
+    const sidebar = document.querySelector('.sidebar-navigation');
+    const sections = document.querySelectorAll('section'); // 모든 섹션 가져오기
+
+    // 섹션 ID와 사이드바 스타일 클래스 매핑
+    const sectionMap = {
+        "birth-chart": "nav-birthchart",
+        "daewoon": "nav-daewoon",
+        "sewoon": "nav-sewoon"
+    };
+
+    // 스크롤 이벤트
+    window.addEventListener("scroll", () => {
+        let currentSection = "";
+
+        // 현재 보이는 섹션 찾기
+        sections.forEach(section => {
+            const rect = section.getBoundingClientRect();
+            if (rect.top <= 100 && rect.bottom >= 100) {
+                currentSection = section.id; // 현재 섹션 ID 저장
+            }
+        });
+
+        // 사이드바에 섹션별 클래스 적용
+        if (currentSection && sectionMap[currentSection]) {
+            sidebar.className = `sidebar-navigation ${sectionMap[currentSection]}`;
+        }
+    });
+});
