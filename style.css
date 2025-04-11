@@ -936,8 +936,8 @@ body, html {
 
 /*sidebar navigation style*/
   .sidebar-navigation {
-    background-color: rgba(255, 255, 255, 0.9); /* 반투명 흰색 배경 */
-    border: 1px solid #ddd; /* 테두리 추가 */
+    background-color: #2c3e50; /* 네비게이션 바 배경색 */
+    border: 1px solid #2c3e50; /* 테두리 색상도 동일하게 변경 */
     position: fixed;
     left: 30px;
     top: 50%;
