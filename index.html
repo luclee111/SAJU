@@ -15,6 +15,55 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- HTML 부분 - 이것을 <body> 태그 바로 아래에 추가하세요 -->
+    <div class="sidebar-navigation">
+      <ul class="nav-list">
+        <li class="nav-item" data-section="header">
+          <a href="#" class="nav-link">
+            <span class="nav-dot"></span>
+            <span class="nav-text">메인</span>
+          </a>
+        </li>
+        <li class="nav-item" data-section="birth-chart">
+          <a href="#birth-chart" class="nav-link">
+            <span class="nav-dot"></span>
+            <span class="nav-text">팔자</span>
+          </a>
+        </li>
+        <li class="nav-item" data-section="daewoon">
+          <a href="#daewoon" class="nav-link">
+            <span class="nav-dot"></span>
+            <span class="nav-text">대운</span>
+          </a>
+        </li>
+        <li class="nav-item" data-section="sewoon">
+          <a href="#sewoon" class="nav-link">
+            <span class="nav-dot"></span>
+            <span class="nav-text">세운</span>
+          </a>
+        </li>
+        <li class="nav-item" data-section="detailed-analysis">
+          <a href="#detailed-analysis" class="nav-link">
+            <span class="nav-dot"></span>
+            <span class="nav-text">상세</span>
+          </a>
+        </li>
+        <li class="nav-item" data-section="fortune-cards">
+          <a href="#detailed-analysis" class="nav-link">
+            <span class="nav-dot"></span>
+            <span class="nav-text">카드요약</span>
+          </a>
+        </li>
+        <li class="nav-item" data-section="final-narrative">
+          <a href=".final-narrative" class="nav-link">
+            <span class="nav-dot"></span>
+            <span class="nav-text">마지막</span>
+          </a>
+        </li>
+      </ul>
+      <div class="nav-line"></div>
+    </div>
+  
   <!-- 페이지 헤더 -->
   <header>
     <div class="background-illustration" id="bg-illustration"></div>
@@ -270,7 +319,7 @@
     </div>
   </section>
 
-     <div class="fortune-cards-container">
+     <div class="fortune-cards-container" id="fortune-cards">
         <!-- 운세 요약 카드 섹션 -->
         <section class="fortune-summary">
            <h2 class="section-title">2025 기회의 순간</h2>
