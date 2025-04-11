@@ -936,8 +936,8 @@ body, html {
 
 /*sidebar navigation style*/
   .sidebar-navigation {
-    background-color: #2c3e50; /* 네비게이션 바 배경색 */
-    border: 1px solid #2c3e50; /* 테두리 색상도 동일하게 변경 */
+    background-color: rgba(255, 255, 255, 0.9); /* 반투명 흰색 배경 */
+    border: 1px solid #ddd; /* 테두리 추가 */
     position: fixed;
     left: 30px;
     top: 50%;
@@ -963,19 +963,20 @@ body, html {
     display: flex;
     align-items: center;
     text-decoration: none;
-    color: #2c3e50;
+    color: #ffffff;
     font-family: 'Noto Sans KR', sans-serif;
     font-size: 16px;
     transition: all 0.3s ease;
   }
 
-  .nav-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: #2c3e50;
-    margin-right: 15px;
-  }
+ .nav-dot {
+    width: 12px; /* 너비 */
+    height: 12px; /* 높이 */
+    background-color: #ffffff; /* 배경색 */
+    transform: rotate(45deg); /* 45도 회전하여 마름모꼴 생성 */
+    margin-right: 15px; /* 오른쪽 여백 */
+    display: inline-block; /* 인라인 블록으로 설정 */
+}
 
   .nav-text {
     opacity: 0.7;
