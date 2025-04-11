@@ -905,6 +905,8 @@ document.addEventListener("DOMContentLoaded", function () {
         "sewoon": "nav-sewoon"
     };
 
+    let previousSection = ""; // 이전 섹션 ID를 저장
+
     // 스크롤 이벤트
     window.addEventListener("scroll", () => {
         let currentSection = "";
@@ -919,7 +921,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // 사이드바에 섹션별 클래스 적용
         if (currentSection && sectionMap[currentSection]) {
-            sidebar.className = `sidebar-navigation ${sectionMap[currentSection]}`;
+            if (currentSection !== previousSection) {
+                // 이전 클래스를 제거하고 새로운 클래스 적용
+                sidebar.classList.remove(...Object.values(sectionMap)); // 모든 클래스 제거
+                sidebar.classList.add(sectionMap[currentSection]); // 현재 섹션 클래스 추가
+                previousSection = currentSection; // 현재 섹션을 이전 섹션으로 업데이트
+            }
+        } else {
+            // 섹션 외부로 벗어나면 기본 스타일 복원
+            sidebar.classList.remove(...Object.values(sectionMap));
+            previousSection = ""; // 이전 섹션 초기화
         }
     });
 });
