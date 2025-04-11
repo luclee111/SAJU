@@ -965,6 +965,7 @@ body, html {
     font-family: 'Noto Sans KR', sans-serif;
     font-size: 16px;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* 진한 그림자 */
   }
 
  .nav-dot {
@@ -974,6 +975,7 @@ body, html {
     transform: rotate(45deg); /* 45도 회전하여 마름모꼴 생성 */
     margin-right: 15px; /* 오른쪽 여백 */
     display: inline-block; /* 인라인 블록으로 설정 */
+   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* 진한 그림자 */
 }
 
   .nav-text {
@@ -982,15 +984,19 @@ body, html {
   }
 
   .nav-item.active .nav-dot {
+     width: 14px; /* 너비 */
+    height: 14px; /* 높이 */
     transform: rotate(45deg); /* 45도 회전하여 마름모꼴 생성 */
     background-color: #ff6f61;
-    box-shadow: 0 0 10px rgba(48, 128, 252, 0.7);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* 진한 그림자 */
   }
 
   .nav-item.active .nav-text {
     color: #ff6f61;
+    font-size: 20px;
     font-weight: 500;
     opacity: 1;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* 진한 그림자 */
   }
 
   .nav-line {
