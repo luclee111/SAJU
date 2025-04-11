@@ -1007,43 +1007,21 @@ body, html {
 .nav-birthchart .nav-link,
 .nav-birthchart .nav-dot,
 .nav-birthchart .nav-line {
-    color: #ffffff; /* 텍스트 색상 */
+   
     background-color: #ffffff; /* 도트와 라인 색상 */
 }
 
 .nav-daewoon .nav-link,
 .nav-daewoon .nav-dot,
 .nav-daewoon .nav-line {
-    color: #ffffff;
+    
     background-color: #ffffff;
 }
 
 .nav-sewoon .nav-link,
 .nav-sewoon .nav-dot,
 .nav-sewoon .nav-line {
-    color: #ffffff;
-    background-color: #ffffff;
-}
-
-/* 섹션별 스타일 */
-.nav-birth-chart .nav-link,
-.nav-birth-chart .nav-dot,
-.nav-birth-chart .nav-line {
-    color: #ffffff; /* 텍스트 색상 */
-    background-color: #ffffff; /* 도트와 라인 색상 */
-}
-
-.nav-daewoon .nav-link,
-.nav-daewoon .nav-dot,
-.nav-daewoon .nav-line {
-    color: #ffffff;
-    background-color: #ffffff;
-}
-
-.nav-sewoon .nav-link,
-.nav-sewoon .nav-dot,
-.nav-sewoon .nav-line {
-    color: #ffffff;
+    
     background-color: #ffffff;
 }
 
