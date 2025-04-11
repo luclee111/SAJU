@@ -321,7 +321,7 @@
 
      <div class="fortune-cards-container">
         <!-- 운세 요약 카드 섹션 -->
-        <section class="fortune-summary">
+        <section id="fortune-summary" class="fortune-summary">
            <h2 class="section-title">2025 기회의 순간</h2>
             <div class="swiper-container opportunities-swiper">
               <div class="swiper-wrapper">
@@ -551,7 +551,7 @@
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         // 모든 섹션 요소와 네비게이션 항목
-        const sections = document.querySelectorAll('section, header, .fortune-cards-container');
+        const sections = document.querySelectorAll('section, header, .fortune-summary');
         const navItems = document.querySelectorAll('.sidebar-navigation .nav-item');
         
         // 네비게이션 링크 클릭 이벤트 처리
@@ -604,7 +604,7 @@
               if (!sectionId) {
                 if (section.tagName.toLowerCase() === 'header') {
                   sectionId = 'header';
-                } else if (section.classList.contains('fortune-cards-container')) {
+                } else if (section.classList.contains('fortune-summary')) {
                   sectionId = 'fortune-cards-container';
                 }
               }
