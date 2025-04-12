@@ -1093,6 +1093,18 @@ body, html {
   overflow-y: auto;
 }
 
+.fullscreen-menu {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.fullscreen-menu.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+
 /* 메뉴 활성화 상태 */
 .fullscreen-menu.active {
   display: flex; /* 활성화 시 표시 */
