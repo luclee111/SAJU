@@ -936,10 +936,11 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
+  // 풀스크린 메뉴 관련
   const menuToggle = document.querySelector('.menu-toggle');
   const fullscreenMenu = document.querySelector('.fullscreen-menu');
   const menuClose = document.querySelector('.menu-close');
-  const menuLinks = document.querySelectorAll('.fullscreen-menu .nav-link');
+  const fullscreenLinks = document.querySelectorAll('.fullscreen-menu .nav-link');
 
   // 햄버거 버튼 클릭 시 풀스크린 메뉴 활성화
   menuToggle.addEventListener('click', () => {
@@ -953,11 +954,36 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflow = ''; // 스크롤 잠금 해제
   });
 
-  // 네비게이션 링크 클릭 시 메뉴 닫기
-  menuLinks.forEach(link => {
+  // 풀스크린 메뉴 링크 클릭 시 메뉴 닫기
+  fullscreenLinks.forEach(link => {
     link.addEventListener('click', () => {
       fullscreenMenu.classList.remove('active');
       document.body.style.overflow = ''; // 스크롤 잠금 해제
+    });
+  });
+
+  // 사이드바 네비게이션 관련
+  const navItems = document.querySelectorAll('.sidebar-navigation .nav-item');
+  const sections = document.querySelectorAll('section, header');
+
+  window.addEventListener('scroll', () => {
+    const scrollPosition = window.scrollY;
+
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 100; // 오프셋
+      const sectionHeight = section.offsetHeight;
+      const sectionId = section.getAttribute('id');
+
+      if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+        navItems.forEach(item => {
+          const target = item.getAttribute('data-section');
+          if (target === sectionId) {
+            item.classList.add('active');
+          } else {
+            item.classList.remove('active');
+          }
+        });
+      }
     });
   });
 });
