@@ -1064,6 +1064,11 @@ body, html {
     }
   }
 
+/* 기본적으로 햄버거 메뉴를 숨김 */
+.menu-toggle, .fullscreen-menu {
+  display: none;
+}
+
 /* 햄버거 메뉴 버튼 */
 .mobile-header .menu-toggle {
   position: fixed;
@@ -1076,26 +1081,30 @@ body, html {
   z-index: 1000;
 }
 
-/* 전체 화면 메뉴 */
-.fullscreen-menu {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.9); /* 어두운 배경 */
-  color: white;
-  display: none; /* 기본적으로 숨김 */
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  overflow-y: auto;
-}
+/* 모바일 환경에서만 표시 */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block; /* 햄버거 메뉴 표시 */
+  }
 
-/* 메뉴 활성화 상태 */
-.fullscreen-menu.active {
-  display: flex; /* 활성화 시 표시 */
+  .fullscreen-menu {
+    display: none; /* 기본적으로 숨김 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9); /* 어두운 배경 */
+    z-index: 9999;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .fullscreen-menu.active {
+    display: flex; /* 메뉴 활성화 시 표시 */
+  }
 }
 
 /* 리스트 아이템 스타일 */
@@ -1138,14 +1147,4 @@ body, html {
 .fullscreen-menu.active {
   opacity: 1;
   visibility: visible;
-}
-
-@media (min-width: 768px) {
-  .mobile-header .menu-toggle {
-    display: none; /* 데스크톱에서는 햄버거 버튼 숨김 */
-  }
-
-  .fullscreen-menu {
-    display: none; /* 데스크톱에서는 풀스크린 메뉴 숨김 */
-  }
 }
