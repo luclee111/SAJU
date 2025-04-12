@@ -939,31 +939,25 @@ document.addEventListener('DOMContentLoaded', () => {
   const menuToggle = document.querySelector('.menu-toggle');
   const fullscreenMenu = document.querySelector('.fullscreen-menu');
   const menuClose = document.querySelector('.menu-close');
+  const menuLinks = document.querySelectorAll('.fullscreen-menu .nav-link');
 
-  // 햄버거 버튼 클릭 시 전체 화면 메뉴 표시
+  // 햄버거 버튼 클릭 시 풀스크린 메뉴 활성화
   menuToggle.addEventListener('click', () => {
     fullscreenMenu.classList.add('active');
+    document.body.style.overflow = 'hidden'; // 스크롤 잠금
   });
 
-  // 닫기 버튼 클릭 시 전체 화면 메뉴 숨김
+  // 닫기 버튼 클릭 시 풀스크린 메뉴 비활성화
   menuClose.addEventListener('click', () => {
     fullscreenMenu.classList.remove('active');
+    document.body.style.overflow = ''; // 스크롤 잠금 해제
   });
 
-  // 외부 클릭 시 메뉴 닫기 방지
-  fullscreenMenu.addEventListener('click', (e) => {
-    if (e.target === fullscreenMenu) {
+  // 네비게이션 링크 클릭 시 메뉴 닫기
+  menuLinks.forEach(link => {
+    link.addEventListener('click', () => {
       fullscreenMenu.classList.remove('active');
-    }
+      document.body.style.overflow = ''; // 스크롤 잠금 해제
+    });
   });
-});
-
-menuToggle.addEventListener('click', () => {
-  fullscreenMenu.classList.add('active');
-  document.body.style.overflow = 'hidden'; // 스크롤 잠금
-});
-
-menuClose.addEventListener('click', () => {
-  fullscreenMenu.classList.remove('active');
-  document.body.style.overflow = ''; // 스크롤 해제
 });
