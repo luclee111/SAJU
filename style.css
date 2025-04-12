@@ -1038,32 +1038,6 @@ body, html {
     opacity: 1;
   }
 
-  
-  /* 모바일 반응형 설정 */
-  @media (max-width: 768px) {
-    .sidebar-navigation {
-      left: 10px;
-    }
-    
-    .nav-text {
-      font-size: 14px;
-    }
-  }
-  
-  @media (max-width: 576px) {
-    .nav-text {
-      display: none;
-    }
-    
-    .sidebar-navigation {
-      left: 5px;
-    }
-    
-    .nav-dot {
-      margin-right: 0;
-    }
-  }
-
 /* 기본적으로 햄버거 메뉴를 숨김 */
 .menu-toggle, .fullscreen-menu {
   display: none;
@@ -1086,6 +1060,10 @@ body, html {
   .menu-toggle {
     display: block; /* 햄버거 메뉴 표시 */
   }
+
+  .sidebar-navigation {
+      display: none;
+    }
 
   .fullscreen-menu {
     display: none; /* 기본적으로 숨김 */
