@@ -971,3 +971,31 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const navItems = document.querySelectorAll('.nav-item');
+
+  // 스크롤 이벤트로 활성화 상태 업데이트
+  window.addEventListener('scroll', () => {
+    const sections = document.querySelectorAll('section');
+    let currentSection = '';
+
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 100; // 약간의 오프셋
+      const sectionHeight = section.offsetHeight;
+
+      if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+        currentSection = section.getAttribute('id');
+      }
+    });
+
+    navItems.forEach(item => {
+      const section = item.getAttribute('data-section');
+      if (section === currentSection) {
+        item.classList.add('active'); // 활성화
+      } else {
+        item.classList.remove('active'); // 비활성화
+      }
+    });
+  });
+});
