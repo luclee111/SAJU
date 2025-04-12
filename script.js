@@ -958,3 +958,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+// 페이지 이동시 풀스크린 메뉴 자동 닫기
+document.addEventListener('DOMContentLoaded', () => {
+  const menuLinks = document.querySelectorAll('.fullscreen-menu .nav-link');
+  const fullscreenMenu = document.querySelector('.fullscreen-menu');
+
+  menuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      fullscreenMenu.classList.remove('active'); // 메뉴 닫기
+      document.body.style.overflow = ''; // 스크롤 잠금 해제
+    });
+  });
+});
