@@ -1042,27 +1042,9 @@ body, html {
   /* 모바일 반응형 설정 */
   @media (max-width: 768px) {
     .sidebar-navigation {
-      left: 10px;
-    }
-    
-    .nav-text {
-      font-size: 14px;
-    }
+      display: none; /* 모바일에서 사이드바 숨김 */
   }
-  
-  @media (max-width: 576px) {
-    .nav-text {
-      display: none;
     }
-    
-    .sidebar-navigation {
-      left: 5px;
-    }
-    
-    .nav-dot {
-      margin-right: 0;
-    }
-  }
 
 /* 햄버거 메뉴 버튼 */
 .mobile-header .menu-toggle {
