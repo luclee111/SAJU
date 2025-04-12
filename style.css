@@ -1148,3 +1148,10 @@ body, html {
   opacity: 1;
   visibility: visible;
 }
+
+/* 사이드바 네비게이션 숨김 */
+@media (max-width: 768px) {
+  .sidebar-navigation {
+    display: none; /* 모바일에서 숨김 */
+  }
+}
