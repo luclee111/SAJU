@@ -1063,3 +1063,47 @@ body, html {
       margin-right: 0;
     }
   }
+
+/* 햄버거 메뉴 버튼 */
+.mobile-header .menu-toggle {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1000; /* 다른 요소 위에 표시 */
+}
+
+/* 사이드바 기본 상태: 숨김 */
+.sidebar-navigation {
+  position: fixed;
+  top: 0;
+  left: -250px; /* 화면 밖으로 숨김 */
+  width: 250px;
+  height: 100%;
+  background: #333;
+  color: white;
+  overflow-y: auto;
+  transition: left 0.3s ease;
+  z-index: 999;
+}
+
+/* 사이드바가 활성화된 상태 */
+.sidebar-navigation.active {
+  left: 0; /* 화면 안으로 이동 */
+}
+
+/* 모바일 헤더 숨김 */
+@media (min-width: 768px) {
+  .mobile-header .menu-toggle {
+    display: none; /* 데스크톱에서는 햄버거 버튼 숨김 */
+  }
+
+  .sidebar-navigation {
+    left: 0; /* 데스크톱에서는 항상 보이도록 설정 */
+    position: relative;
+  }
+}
+
