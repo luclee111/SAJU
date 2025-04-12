@@ -1073,26 +1073,60 @@ body, html {
   background: none;
   border: none;
   cursor: pointer;
-  z-index: 1000; /* 다른 요소 위에 표시 */
+  z-index: 1000;
 }
 
-/* 사이드바 기본 상태: 숨김 */
-.sidebar-navigation {
+/* 전체 화면 메뉴 */
+.fullscreen-menu {
   position: fixed;
   top: 0;
-  left: -250px; /* 화면 밖으로 숨김 */
-  width: 250px;
+  left: 0;
+  width: 100%;
   height: 100%;
-  background: #333;
+  background-color: rgba(0, 0, 0, 0.9); /* 어두운 배경 */
   color: white;
+  display: none; /* 기본적으로 숨김 */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
   overflow-y: auto;
-  transition: left 0.3s ease;
-  z-index: 999;
 }
 
-/* 사이드바가 활성화된 상태 */
-.sidebar-navigation.active {
-  left: 0; /* 화면 안으로 이동 */
+/* 메뉴 활성화 상태 */
+.fullscreen-menu.active {
+  display: flex; /* 활성화 시 표시 */
+}
+
+/* 리스트 아이템 스타일 */
+.fullscreen-menu .nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.fullscreen-menu .nav-item {
+  margin: 15px 0;
+}
+
+.fullscreen-menu .nav-link {
+  color: white;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* 닫기 버튼 */
+.menu-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
 }
 
 /* 모바일 헤더 숨김 */
@@ -1101,9 +1135,12 @@ body, html {
     display: none; /* 데스크톱에서는 햄버거 버튼 숨김 */
   }
 
+.fullscreen-menu {
+    display: none; /* 데스크톱에서는 풀스크린 메뉴 숨김 */
+  }
+
   .sidebar-navigation {
     left: 0; /* 데스크톱에서는 항상 보이도록 설정 */
     position: relative;
   }
 }
-
