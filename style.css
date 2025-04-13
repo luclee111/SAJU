@@ -334,8 +334,8 @@ html, body {
 }
 
 .chart-container svg {
-  width: 100%;
-  height: 100%;
+  width: 900px;
+  height: 700px;
   overflow: visible;
 }
 
@@ -720,10 +720,11 @@ body, html {
     }
 
   .chart-container {
+    display: block !important; /* 부모의 flex 영향을 제거 */
     overflow-x: auto;
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch; /* iOS 부드러운 스크롤 */
-    width: 95%;
+    width: 100%;
     height: 70%
     margin: 0 auto; /* 가운데 정렬 */
     display: flex; /* Flexbox 사용 */
@@ -734,8 +735,8 @@ body, html {
   
   /* SVG 너비는 유지하되, 컨테이너 패딩으로 인해 왼쪽 스크롤 가능 */
   .chart-container svg {
-    width: 500px; /* 기존 너비 유지 */
-    height: auto;
+    width: 900px; /* 기존 너비 유지 */
+    height: 700px;
     flex-shrink: 0; /* SVG가 컨테이너 크기에 맞춰 줄어들지 않도록 */
   }
 }
@@ -821,11 +822,6 @@ body, html {
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
   width: 100%;
-}
-
-.chart-container svg {
-  width: 900px;
-  height: 700px;
 }
 
 /* 기본 Swiper 스타일 덮어쓰기 */
