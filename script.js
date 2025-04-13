@@ -35,9 +35,11 @@ function setVh() {
 window.addEventListener('resize', setVh);
 window.addEventListener('load', setVh);
 
-window.onload = function() {
-  // 페이지 로드 시 헤더로 스크롤
-  window.scrollTo(0, 0);
+// HTML, body의 스크롤 설정
+document.addEventListener('DOMContentLoaded', function () {
+    document.body.style.scrollBehavior = 'smooth'; // 부드러운 스크롤
+    document.body.style.overscrollBehavior = 'contain'; // 스크롤 튐 방지
+});
   
   // 헤더 요소들의 애니메이션 활성화 (기존 opacity: 0 문제 해결)
   document.querySelectorAll('header > *').forEach(function(element) {
@@ -717,15 +719,25 @@ const parameterDetails = parameters.reduce((acc, param) => {
     document.body.appendChild(modal)
 
     modal.querySelector('.modal-close-btn').addEventListener('click', () => {
-      modal.remove();
+        closeModal(modal); // 닫기 함수 호출
     });
 
     modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        modal.remove();
-      }
-    });
-  }
+        if (e.target === modal) {
+            closeModal(modal); // 닫기 함수 호출
+        }
+      });
+    }
+
+    // 새로운 모달 열기/닫기 헬퍼 함수 추가
+    function openModal(modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeModal(modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
 
   function addModalTriggersToParamLabels() {
     const paramLabelGroups = document.querySelectorAll('.param-label-group, .reverse-param-label-group');
@@ -741,22 +753,9 @@ const parameterDetails = parameters.reduce((acc, param) => {
 
   document.addEventListener('DOMContentLoaded', addModalTriggersToParamLabels);
   
-  document.addEventListener('DOMContentLoaded', () => {
-    // Interactive Checklist
-    const checklistItems = document.querySelectorAll('.checklist input[type="checkbox"]');
-    checklistItems.forEach(item => {
-        item.addEventListener('change', (e) => {
-            const label = e.target.nextElementSibling;
-            if (e.target.checked) {
-                label.style.textDecoration = 'line-through';
-                label.style.color = '#888';
-            } else {
-                label.style.textDecoration = 'none';
-                label.style.color = '#2c3e50';
-            }
-        });
-    });
-
+ 
+  
+ 
     // Today's Recommended Action
     const actionPhrases = [
         "오늘은 내면의 평화를 먼저 찾아보세요.",
