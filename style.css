@@ -722,7 +722,8 @@ body, html {
     overflow-x: auto;
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch; /* iOS 부드러운 스크롤 */
-    width: 95%;
+    width: 98%;
+    height: 100%
     margin: 0 auto; /* 가운데 정렬 */
     display: flex; /* Flexbox 사용 */
     justify-content: flex-start; /* 내용을 왼쪽부터 시작 (기본값이지만 명시) */
