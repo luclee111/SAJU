@@ -1038,6 +1038,32 @@ body, html {
     opacity: 1;
   }
 
+  
+  /* 모바일 반응형 설정 */
+  @media (max-width: 768px) {
+    .sidebar-navigation {
+      left: 10px;
+    }
+    
+    .nav-text {
+      font-size: 14px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .nav-text {
+      display: none;
+    }
+    
+    .sidebar-navigation {
+      left: 5px;
+    }
+    
+    .nav-dot {
+      margin-right: 0;
+    }
+  }
+
 /* 기본적으로 햄버거 메뉴를 숨김 */
 .menu-toggle, .fullscreen-menu {
   display: none;
@@ -1055,15 +1081,16 @@ body, html {
   z-index: 1000;
 }
 
+.menu-icon {
+  width: 30px; /* 원하는 너비 */
+  height: 30px; /* 원하는 높이 */
+}
+
 /* 모바일 환경에서만 표시 */
 @media (max-width: 768px) {
   .menu-toggle {
     display: block; /* 햄버거 메뉴 표시 */
   }
-
-  .sidebar-navigation {
-      display: none;
-    }
 
   .fullscreen-menu {
     display: none; /* 기본적으로 숨김 */
@@ -1125,4 +1152,11 @@ body, html {
 .fullscreen-menu.active {
   opacity: 1;
   visibility: visible;
+}
+
+/* 사이드바 네비게이션 숨김 */
+@media (max-width: 768px) {
+  .sidebar-navigation {
+    display: none; /* 모바일에서 숨김 */
+  }
 }
