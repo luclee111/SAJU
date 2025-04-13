@@ -717,18 +717,18 @@ const parameterDetails = parameters.reduce((acc, param) => {
       </div>
     `;
 
-    document.body.appendChild(modal)
+      document.body.appendChild(modal)
 
     modal.querySelector('.modal-close-btn').addEventListener('click', () => {
-        closeModal(modal); // 닫기 함수 호출
+      modal.remove();
     });
 
     modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            closeModal(modal); // 닫기 함수 호출
-        }
-      });
-    }
+      if (e.target === modal) {
+        modal.remove();
+      }
+    });
+  }
 
     // 새로운 모달 열기/닫기 헬퍼 함수 추가
     function openModal(modal) {
