@@ -716,13 +716,20 @@ const parameterDetails = parameters.reduce((acc, param) => {
 
     document.body.appendChild(modal);
 
+     // 스크롤 잠금
+    document.body.style.overflow = 'hidden';
+    
     modal.querySelector('.modal-close-btn').addEventListener('click', () => {
       modal.remove();
+        // 스크롤 잠금 해제
+    document.body.style.overflow = '';
     });
 
     modal.addEventListener('click', (e) => {
       if (e.target === modal) {
         modal.remove();
+        // 스크롤 잠금 해제
+      document.body.style.overflow = '';
       }
     });
   }
