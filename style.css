@@ -787,6 +787,18 @@ body, html {
   narrative-description {
     font-size: calc(0.8rem + 0.5vw);
   }
+  
+ #four-pillars-table {
+    width: 90%; /* 화면 너비의 90%로 조정하여 좌우 여백 확보 */
+    margin: 0 auto; /* 표를 화면 중앙에 정렬 */
+    border-spacing: 8px; /* 셀 간 간격 추가 */
+  }
+
+  #four-pillars-table th, 
+  #four-pillars-table td {
+    padding: 10px; /* 셀 내부 여백 추가 */
+    font-size: 0.9rem; /* 글자 크기를 조금 줄여 모바일에 적합하게 설정 */
+  }
 }
 
 @media (min-width: 768px) {
