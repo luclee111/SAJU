@@ -755,9 +755,8 @@ const parameterDetails = parameters.reduce((acc, param) => {
   document.addEventListener('DOMContentLoaded', addModalTriggersToParamLabels);
   
  
-  
- 
-    // Today's Recommended Action
+  document.addEventListener('DOMContentLoaded', () => {
+       // Today's Recommended Action
     const actionPhrases = [
         "오늘은 내면의 평화를 먼저 찾아보세요.",
         "새로운 시도를 두려워하지 마세요.",
@@ -803,7 +802,7 @@ const parameterDetails = parameters.reduce((acc, param) => {
     cards.forEach(card => {
         cardObserver.observe(card);
     });
-});
+  });
 
 //swiper.js 초기화//
 document.addEventListener('DOMContentLoaded', function () {
