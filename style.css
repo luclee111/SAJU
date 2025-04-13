@@ -712,6 +712,24 @@ body, html {
     .section-title {
         font-size: 1.5rem;
     }
+
+  .chart-container {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch; /* iOS 부드러운 스크롤 */
+    width: 100%;
+    display: flex; /* Flexbox 사용 */
+    justify-content: flex-start; /* 내용을 왼쪽부터 시작 (기본값이지만 명시) */
+    padding-left: 5%; /* 왼쪽에 스크롤할 여백 생성 (값은 디자인에 맞게 조절) */
+    box-sizing: border-box; /* 패딩이 너비에 포함되도록 */
+  }
+  
+  /* SVG 너비는 유지하되, 컨테이너 패딩으로 인해 왼쪽 스크롤 가능 */
+  .chart-container svg {
+    width: 900px; /* 기존 너비 유지 */
+    height: 700px;
+    flex-shrink: 0; /* SVG가 컨테이너 크기에 맞춰 줄어들지 않도록 */
+  }
 }
 
 
