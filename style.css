@@ -314,14 +314,15 @@ html, body {
 
 .chart-container {
   position: relative;
-  width: 900px;
-  height: 700px;
-  margin: 0 auto;
-  overflow: visible;
+  width: calc(100% + 20px); /* 좌우 스크롤 여유 공간 추가 */
+  height: auto; /* 높이 자동 조정 */
+  margin-left: -10px; /* 왼쪽 잘림 방지 */
+  overflow-x: auto; /* 가로 스크롤 활성화 */
+  overflow-y: hidden; /* 세로 스크롤 비활성화 */
+  -webkit-overflow-scrolling: touch; /* iOS 부드러운 스크롤 */
   background: radial-gradient(circle, #000000 0%, #242423 100%);
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-sizing: border-box; /* 패딩 포함하여 크기 계산 */
 }
-
 .center-icon {
   position: absolute;
   width: 1500px;
@@ -727,14 +728,14 @@ body, html {
     margin: 0 auto; /* 가운데 정렬 */
     display: flex; /* Flexbox 사용 */
     justify-content: flex-start; /* 내용을 왼쪽부터 시작 (기본값이지만 명시) */
-    padding-left: 0; /* 왼쪽에 스크롤할 여백 생성 (값은 디자인에 맞게 조절) */
+    padding-left: 10px; /* 왼쪽에 스크롤할 여백 생성 (값은 디자인에 맞게 조절) */
     box-sizing: border-box; /* 패딩이 너비에 포함되도록 */
   }
   
   /* SVG 너비는 유지하되, 컨테이너 패딩으로 인해 왼쪽 스크롤 가능 */
   .chart-container svg {
-    width: 700px; /* 기존 너비 유지 */
-    height: 500px;
+    width: 900px; /* 기존 너비 유지 */
+    height: auto;
     flex-shrink: 0; /* SVG가 컨테이너 크기에 맞춰 줄어들지 않도록 */
   }
 }
