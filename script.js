@@ -716,6 +716,19 @@ const parameterDetails = parameters.reduce((acc, param) => {
 
     document.body.appendChild(modal);
 
+    document.body.style.overflow = 'hidden'; // <-- 모달 열 때 배경 스크롤 방지
+
+    modal.querySelector('.modal-close-btn').addEventListener('click', () => {
+      modal.remove();
+      document.body.style.overflow = ''; // <-- 모달 닫을 때 배경 스크롤 복구
+    });
+  
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.remove();
+        document.body.style.overflow = ''; // <-- 모달 닫을 때 배경 스크롤 복구
+      }
+
     modal.querySelector('.modal-close-btn').addEventListener('click', () => {
       modal.remove();
     });
