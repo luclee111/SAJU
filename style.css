@@ -14,11 +14,8 @@ body, html {
   padding: 0;
   font-family: 'Noto Serif KR', serif;
   background-color: #f8f7f4;
-  overflow-x: hidden;
-  -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
   color: #2c3e50;
-  overscroll-behavior-y: none; /* 바운스 효과 방지 */
 }
 
 header {
@@ -119,10 +116,7 @@ section {
   position: relative;
   background-color: #ffffff;
   opacity: 0;
-  overflow: hidden;
-  transform: translateZ(0); /* 3D 가속은 유지 */
-  margin-top: 40px; /* 수직 이동은 margin으로 처리 */
-  backface-visibility: hidden;
+  transform: translateY(40px);
   background-size: cover;
   background-position: center;
   color: #fff
@@ -415,13 +409,6 @@ html, body {
   color: #ccc;
 }
 
-/* 모달 활성화 시 body 스크롤 비활성화 */
-body.modal-open {
-  overflow: hidden; /* 스크롤 막기 */
-  position: fixed; /* 화면 고정 */
-  width: 100%; /* 화면 크기 유지 */
-}
-
 .parameter-description {
   color: #ddd;
   margin-bottom: 15px;
@@ -487,11 +474,6 @@ body, html {
 }
 
 .fortune-cards-container {
-    position: relative;
-    z-index: 1;
-    transform: translateZ(0);
-    -webkit-transform: translateZ(0);
-    backface-visibility: hidden;
     padding: 40px 20px;
     background-color: #f8f7f4;
 }
