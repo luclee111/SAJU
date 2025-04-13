@@ -40,7 +40,8 @@ document.addEventListener('DOMContentLoaded', function () {
     document.body.style.scrollBehavior = 'smooth'; // 부드러운 스크롤
     document.body.style.overscrollBehavior = 'contain'; // 스크롤 튐 방지
 });
-  
+
+window.onload = function() {
   // 헤더 요소들의 애니메이션 활성화 (기존 opacity: 0 문제 해결)
   document.querySelectorAll('header > *').forEach(function(element) {
     element.style.opacity = '1';
