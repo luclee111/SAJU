@@ -463,6 +463,11 @@ html, body {
   border: 1px solid #f0c36d;                /* 테두리로 더 강조 */
 }
 
+/* 모달이 열릴 때 body 스크롤 비활성화 */
+body.modal-open {
+  overflow: hidden;
+}
+
 /* Fortune Cards CSS - Consistent with Existing Design */
 body, html {
     margin: 0;
