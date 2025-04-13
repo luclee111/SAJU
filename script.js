@@ -291,8 +291,8 @@ const orangeCrownPathEl = document.getElementById('orange-crown-path');
 const defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
 svg.appendChild(defs);
 
-// 디버깅을 위한 코드: SVG 영역에 테두리 추가
-svg.setAttribute("style", "border: 1px solid red;");
+// 디버깅을 위한 코드: SVG 영역에 테두리 필요할 때 다시 추가하기
+//svg.setAttribute("style", "border: 1px solid red;");
 
 // 1) 베이스 원 세팅
 baseCircleEl.setAttribute('cx', centerX);
