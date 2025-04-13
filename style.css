@@ -1081,6 +1081,11 @@ body, html {
   z-index: 1000;
 }
 
+.menu-icon {
+  width: 30px; /* 원하는 너비 */
+  height: 30px; /* 원하는 높이 */
+}
+
 /* 모바일 환경에서만 표시 */
 @media (max-width: 768px) {
   .menu-toggle {
