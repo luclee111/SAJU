@@ -734,7 +734,7 @@ body, html {
   
   /* SVG 너비는 유지하되, 컨테이너 패딩으로 인해 왼쪽 스크롤 가능 */
   .chart-container svg {
-    width: 900px; /* 기존 너비 유지 */
+    width: 500px; /* 기존 너비 유지 */
     height: auto;
     flex-shrink: 0; /* SVG가 컨테이너 크기에 맞춰 줄어들지 않도록 */
   }
