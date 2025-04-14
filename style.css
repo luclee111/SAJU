@@ -125,16 +125,18 @@ body, html {
     display: none;
   }
 
-.main-header {
+ #main-header {
     height: 50px; /* 작아진 크기에 맞게 설정 */
   }
 
-  .main-header .large-logo {
+  #main-header #large-logo {
     height: 100px; /* 로고 크기 조정 */
+    top: 4px;
   }
 
-  .main-header .small-logo {
+  #main-header #small-logo {
     height: 30px; /* 로고 크기 조정 */
+    top: 1px;
   }  
 }
 
@@ -143,7 +145,7 @@ body, html {
   font-size: 24px;
   cursor: pointer;
   position: absolute;
-  top: 20px;
+  top: -3px;
   right: 20px;
 }
 
