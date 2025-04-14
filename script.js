@@ -958,13 +958,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener('DOMContentLoaded', () => {
   // 풀스크린 메뉴 관련
-  const menuToggle = document.querySelector('.menu-toggle');
-  const fullscreenMenu = document.querySelector('.fullscreen-menu');
+  const hamburgerMenu = document.querySelector(".hamburger-menu");
+  const fullscreenMenu = document.querySelector(".fullscreen-menu");
   const menuClose = document.querySelector('.menu-close');
   const fullscreenLinks = document.querySelectorAll('.fullscreen-menu .nav-link');
 
   // 햄버거 버튼 클릭 시 풀스크린 메뉴 활성화
-  menuToggle.addEventListener('click', () => {
+ hamburgerMenu.addEventListener('click', () => {
     fullscreenMenu.classList.add('active');
     document.body.style.overflow = 'hidden'; // 스크롤 잠금
   });
