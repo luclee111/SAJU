@@ -100,22 +100,25 @@
     </div>
   
   <!-- 페이지 헤더 -->
-  <header>
-    <div class="background-illustration" id="bg-illustration"></div>
-    
-    <p class="spoiler-warning">
-      ⚠️ 이 페이지에는 당신 인생의 스포일러가 포함되어 있습니다.<br>
-      <span class="spoiler-sub">팔자, 대운, 세운까지... 드라마를 보기도 전에 먼저 각본을 읽을 준비 되셨나요?</span>
-    </p>
-    
-    <h1>My Life On Air</h1>
-    <p>
-      당신의 인생이 한 편의 드라마라면 명리학을 통해 알 수 있는 팔자는 ‘캐릭터 소개’, 10년 마다 바뀌는 대운은 ‘시즌’ 그리고 매해 바뀌는 세운은 시즌안에 벌어지는 ‘에피소드’라고 할 수 있어요.<br>
-      당신을 위해 만들어진 이 웹페이지를 통해 주인공인 당신의 소개, 현재 놓여있는 대운 그리고 올해의 운세까지 일러스트를 통한 이야기로 들려드릴 거예요.<br>
-      준비 되셨다면 아래 버튼을 눌러 시작해주세요!
-    </p>
-    <a href="#birth-chart" class="scroll-btn">이호상, 남, 1995/03/06 08:45</a>
-  </header>
+  <header id="main-header" class="sticky-header">
+  <div class="header-container">
+    <!-- 로고 -->
+    <div class="logo">
+      <img id="large-logo" src="./images/Logo.png" alt="큰 로고">
+      <img id="small-logo" src="./images/small-logo.png" alt="작은 로고">
+    </div>
+
+    <!-- 메뉴 -->
+    <nav class="menu">
+      <ul>
+        <li class="menu-item active"><a href="#header">홈</a></li>
+        <li class="menu-item"><a href="#birth-chart">팔자소개</a></li>
+        <li class="menu-item"><a href="#fortune-summary">카드요약</a></li>
+        <li class="menu-item"><a href="#final-narrative">마지막</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
   <!-- 주인공 소개 섹션 -->
   <section id="birth-chart">
