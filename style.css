@@ -32,7 +32,7 @@ body, html {
   top: 0;
   left: 0;
   width: 100%;
-  height: 80px;
+  height: 100px;
   background-color: black;
   color: white;
   display: flex;
@@ -47,7 +47,9 @@ body, html {
 /* 로고 스타일 */
 .logo img {
   height: 150px;
-  transition: height 0.3s ease;
+  transition: transform 0.3s ease, height 0.3s ease, margin 0.3s ease; /* 애니메이션 효과 */
+  margin-top: 10px; /* 위쪽 여백 */
+  margin-left: 10px; /* 왼쪽 여백 */
 }
 
 #main-header.sticky #large-logo {
@@ -71,7 +73,7 @@ body, html {
   justify-content: center; /* 메뉴 중앙 정렬 */
   margin: 0;
   padding: 0;
-  margin-left: 150px; /* 원하는 왼쪽 여백 추가 */
+  margin-left: 200px; /* 원하는 왼쪽 여백 추가 */
 }
 
 .menu-item a {
