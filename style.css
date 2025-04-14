@@ -32,6 +32,7 @@ body, html {
   top: 0;
   left: 0;
   width: 100%;
+  height: 80px;
   background-color: black;
   color: white;
   display: flex;
@@ -39,6 +40,7 @@ body, html {
   justify-content: space-between;
   padding: 10px 20px;
   z-index: 1000;
+  overflow: visible; 
   transition: background-color 0.3s ease, padding 0.3s ease;
 }
 
