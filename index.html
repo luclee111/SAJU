@@ -15,42 +15,8 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Hamburger menu for mobile -->
-    <div class="mobile-header">
-      <button class="menu-toggle" aria-label="Toggle Menu">
-        ☰ <!-- 햄버거 메뉴 아이콘 -->
-      </button>
-    </div>
-  
- <!-- Hamburger menu full screen for mobile -->
-    <div class="fullscreen-menu">
-      <button class="menu-close" aria-label="Close Menu">✖</button>
-      <ul class="nav-list">
-        <li class="nav-item" data-section="header">
-          <a href="#" class="nav-link">메인</a>
-        </li>
-        <li class="nav-item" data-section="birth-chart">
-          <a href="#birth-chart" class="nav-link">팔자</a>
-        </li>
-        <li class="nav-item" data-section="daewoon">
-          <a href="#daewoon" class="nav-link">대운</a>
-        </li>
-        <li class="nav-item" data-section="sewoon">
-          <a href="#sewoon" class="nav-link">세운</a>
-        </li>
-        <li class="nav-item" data-section="detailed-analysis">
-          <a href="#detailed-analysis" class="nav-link">상세</a>
-        </li>
-        <li class="nav-item" data-section="fortune-summary">
-          <a href="#fortune-summary" class="nav-link">카드요약</a>
-        </li>
-        <li class="nav-item" data-section="final-narrative">
-          <a href="#final-narrative" class="nav-link">마지막</a>
-        </li>
-      </ul>
-    </div>
-  
-<!-- sidebar navigation -->
+          
+  <!-- HTML 부분 - 이것을 <body> 태그 바로 아래에 추가하세요 -->
     <div class="sidebar-navigation">
       <ul class="nav-list">
         <li class="nav-item" data-section="header">
@@ -97,6 +63,40 @@
         </li>
       </ul>
       <div class="nav-line"></div>
+    </div>
+
+    <div class="fullscreen-menu">
+        <button class="menu-close" aria-label="Close Menu">✖</button>
+        <ul class="nav-list">
+          <li class="nav-item" data-section="header">
+            <a href="#" class="nav-link">메인</a>
+          </li>
+          <li class="nav-item" data-section="birth-chart">
+            <a href="#birth-chart" class="nav-link">팔자</a>
+          </li>
+          <li class="nav-item" data-section="daewoon">
+            <a href="#daewoon" class="nav-link">대운</a>
+          </li>
+          <li class="nav-item" data-section="sewoon">
+            <a href="#sewoon" class="nav-link">세운</a>
+          </li>
+          <li class="nav-item" data-section="detailed-analysis">
+            <a href="#detailed-analysis" class="nav-link">상세</a>
+          </li>
+          <li class="nav-item" data-section="fortune-summary">
+            <a href="#fortune-summary" class="nav-link">카드요약</a>
+          </li>
+          <li class="nav-item" data-section="final-narrative">
+            <a href="#final-narrative" class="nav-link">마지막</a>
+          </li>
+        </ul>
+      </div>
+
+     <!-- 모바일용 햄버거 풀 스크린 -->
+     <div class="mobile-header">
+      <button class="menu-toggle" aria-label="Toggle Menu">
+        <img src="./images/Logo.png" alt="Menu Icon" class="menu-icon" />
+      </button>
     </div>
   
   <!-- 페이지 헤더 -->
@@ -342,7 +342,7 @@
     <div id="crown-chart">
       <h3>나의 팔자 파라미터</h3>
       <div class="chart-container">
-        <svg viewBox="0 0 1300 800" preserveAspectRatio="xMidYMid meet">
+        <svg viewBox="0 0 1300 800" preserveAspectRatio="xMidYMid meet" stroke="none">
           <!-- 배경 이미지 -->
           <image x="0" y="120" width="1500" height="900" href="./images/Palja_Param_Portrait.png" />
           <!-- 베이스 원 및 왕관 패스 -->
