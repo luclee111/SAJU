@@ -35,7 +35,6 @@ body, html {
   height: 100px;
   background-color: black;
   color: white;
-  display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px 20px;
@@ -48,8 +47,8 @@ body, html {
 .logo img {
   height: 150px;
   transition: transform 0.3s ease, height 0.3s ease, margin 0.3s ease; /* 애니메이션 효과 */
-  margin-top: 100px; /* 위쪽 여백 */
-  margin-left: 100px; /* 왼쪽 여백 */
+  margin-top: 10px; /* 위쪽 여백 */
+  margin-left: 10px; /* 왼쪽 여백 */
 }
 
 #main-header.sticky #large-logo {
