@@ -245,7 +245,7 @@ section p {
 }
 
 .slider-container section {
-  flex: 0 0 100%; /* 각 section이 화면 전체를 차지 */
+  flex: 0 0 34%; /* 각 section이 화면 전체를 차지 */
 }
 
 .slider-arrow {
