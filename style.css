@@ -75,12 +75,24 @@ body, html {
   visibility: hidden;  /* 기본 숨김 (공간 차지 안함, 접근성 트리에서 제외) */;
 }
 
+/* 초기 상태에서 sticky-logo 숨기기 */
+#sticky-logo {
+  height: 30px; /* 원하는 크기로 설정 */
+  margin-left: 10px; /* small-logo와의 간격 */
+  opacity: 0;        /* 기본 숨김 (투명도 0) */
+  visibility: hidden;  /* 기본 숨김 (공간 차지 안함, 접근성 트리에서 제외) */;
+}
+
 /* 스티키 상태 로고 전환 (Opacity/Visibility 변경) */
 #main-header.sticky .logo #large-logo {
   opacity: 0;        /* 스티키 시 숨김 (투명) */
   visibility: hidden;  /* 스티키 시 숨김 */
 }
 #main-header.sticky .logo #small-logo {
+  opacity: 1;        /* 스티키 시 보임 (불투명) */
+  visibility: visible; /* 스티키 시 보임 */
+}
+#main-header.sticky .logo #sticky-logo {
   opacity: 1;        /* 스티키 시 보임 (불투명) */
   visibility: visible; /* 스티키 시 보임 */
 }
