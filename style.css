@@ -43,14 +43,12 @@ body, html {
   transition: background-color 0.3s ease, padding 0.3s ease;
 }
 
-
-
 /* 로고 스타일 */
 .logo img {
   height: 150px;
-  transition: transform 0.3s ease, height 0.3s ease, margin 0.3s ease; /* 애니메이션 효과 */
-  margin-top: 10px; /* 위쪽 여백 */
-  margin-left: 10px; /* 왼쪽 여백 */
+  transition: opacity 0.3s ease-in-out; /* opacity 변경 시 부드러운 효과 */
+  top: 50%;
+  left: 6%;
   position: absolute;
 }
 
@@ -62,17 +60,30 @@ body, html {
   /* display: flex; align-items: center; */ /* 제거됨 */
 }
 
-#main-header.sticky #large-logo {
-  display: none;
+/* 큰 로고 (기본 상태) */
+#large-logo {
+  height: 150px;
+  opacity: 1;        /* 기본 보임 (투명도 1) */
+  visibility: visible; /* 기본 보임 */
 }
 
-#main-header.sticky #small-logo {
-  display: block;
-}
-
+/* 작은 로고 (기본 상태 - 숨김) */
 #small-logo {
   display: none;
-  height: 30px;
+  height: 50px;
+  top: 20%;
+  opacity: 0;        /* 기본 숨김 (투명도 0) */
+  visibility: hidden;  /* 기본 숨김 (공간 차지 안함, 접근성 트리에서 제외) */;
+}
+
+/* 스티키 상태 로고 전환 (Opacity/Visibility 변경) */
+#main-header.sticky .logo #large-logo {
+  opacity: 0;        /* 스티키 시 숨김 (투명) */
+  visibility: hidden;  /* 스티키 시 숨김 */
+}
+#main-header.sticky .logo #small-logo {
+  opacity: 1;        /* 스티키 시 보임 (불투명) */
+  visibility: visible; /* 스티키 시 보임 */
 }
 
 /* 메뉴 스타일 */
