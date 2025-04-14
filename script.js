@@ -35,10 +35,13 @@ function setVh() {
 window.addEventListener('resize', setVh);
 window.addEventListener('load', setVh);
 
+// HTML, body의 스크롤 설정
+document.addEventListener('DOMContentLoaded', function () {
+    document.body.style.scrollBehavior = 'smooth'; // 부드러운 스크롤
+    document.body.style.overscrollBehavior = 'contain'; // 스크롤 튐 방지
+});
+
 window.onload = function() {
-  // 페이지 로드 시 헤더로 스크롤
-  window.scrollTo(0, 0);
-  
   // 헤더 요소들의 애니메이션 활성화 (기존 opacity: 0 문제 해결)
   document.querySelectorAll('header > *').forEach(function(element) {
     element.style.opacity = '1';
@@ -288,8 +291,8 @@ const orangeCrownPathEl = document.getElementById('orange-crown-path');
 const defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
 svg.appendChild(defs);
 
-// 디버깅을 위한 코드: SVG 영역에 테두리 추가
-svg.setAttribute("style", "border: 1px solid red;");
+// 디버깅을 위한 코드: SVG 영역에 테두리 필요할 때 다시 추가하기
+//svg.setAttribute("style", "border: 1px solid red;");
 
 // 1) 베이스 원 세팅
 baseCircleEl.setAttribute('cx', centerX);
@@ -714,7 +717,7 @@ const parameterDetails = parameters.reduce((acc, param) => {
       </div>
     `;
 
-    document.body.appendChild(modal);
+      document.body.appendChild(modal)
 
     modal.querySelector('.modal-close-btn').addEventListener('click', () => {
       modal.remove();
@@ -726,6 +729,16 @@ const parameterDetails = parameters.reduce((acc, param) => {
       }
     });
   }
+
+    // 새로운 모달 열기/닫기 헬퍼 함수 추가
+    function openModal(modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeModal(modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
 
   function addModalTriggersToParamLabels() {
     const paramLabelGroups = document.querySelectorAll('.param-label-group, .reverse-param-label-group');
@@ -741,23 +754,9 @@ const parameterDetails = parameters.reduce((acc, param) => {
 
   document.addEventListener('DOMContentLoaded', addModalTriggersToParamLabels);
   
+ 
   document.addEventListener('DOMContentLoaded', () => {
-    // Interactive Checklist
-    const checklistItems = document.querySelectorAll('.checklist input[type="checkbox"]');
-    checklistItems.forEach(item => {
-        item.addEventListener('change', (e) => {
-            const label = e.target.nextElementSibling;
-            if (e.target.checked) {
-                label.style.textDecoration = 'line-through';
-                label.style.color = '#888';
-            } else {
-                label.style.textDecoration = 'none';
-                label.style.color = '#2c3e50';
-            }
-        });
-    });
-
-    // Today's Recommended Action
+       // Today's Recommended Action
     const actionPhrases = [
         "오늘은 내면의 평화를 먼저 찾아보세요.",
         "새로운 시도를 두려워하지 마세요.",
@@ -803,7 +802,7 @@ const parameterDetails = parameters.reduce((acc, param) => {
     cards.forEach(card => {
         cardObserver.observe(card);
     });
-});
+  });
 
 //swiper.js 초기화//
 document.addEventListener('DOMContentLoaded', function () {
@@ -935,66 +934,54 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// 모바일용 햄버거 버튼 풀스크린
 document.addEventListener('DOMContentLoaded', () => {
+  // 풀스크린 메뉴 관련
   const menuToggle = document.querySelector('.menu-toggle');
   const fullscreenMenu = document.querySelector('.fullscreen-menu');
   const menuClose = document.querySelector('.menu-close');
+  const fullscreenLinks = document.querySelectorAll('.fullscreen-menu .nav-link');
 
-  // 햄버거 버튼 클릭 시 전체 화면 메뉴 표시
+  // 햄버거 버튼 클릭 시 풀스크린 메뉴 활성화
   menuToggle.addEventListener('click', () => {
     fullscreenMenu.classList.add('active');
+    document.body.style.overflow = 'hidden'; // 스크롤 잠금
   });
 
-  // 닫기 버튼 클릭 시 전체 화면 메뉴 숨김
+  // 닫기 버튼 클릭 시 풀스크린 메뉴 비활성화
   menuClose.addEventListener('click', () => {
     fullscreenMenu.classList.remove('active');
+    document.body.style.overflow = ''; // 스크롤 잠금 해제
   });
 
-  // 외부 클릭 시 메뉴 닫기 방지
-  fullscreenMenu.addEventListener('click', (e) => {
-    if (e.target === fullscreenMenu) {
-      fullscreenMenu.classList.remove('active');
-    }
-  });
-});
-
-// 페이지 이동시 풀스크린 메뉴 자동 닫기
-document.addEventListener('DOMContentLoaded', () => {
-  const menuLinks = document.querySelectorAll('.fullscreen-menu .nav-link');
-  const fullscreenMenu = document.querySelector('.fullscreen-menu');
-
-  menuLinks.forEach(link => {
+  // 풀스크린 메뉴 링크 클릭 시 메뉴 닫기
+  fullscreenLinks.forEach(link => {
     link.addEventListener('click', () => {
-      fullscreenMenu.classList.remove('active'); // 메뉴 닫기
+      fullscreenMenu.classList.remove('active');
       document.body.style.overflow = ''; // 스크롤 잠금 해제
     });
   });
-});
 
-document.addEventListener('DOMContentLoaded', () => {
-  const navItems = document.querySelectorAll('.nav-item');
+  // 사이드바 네비게이션 관련
+  const navItems = document.querySelectorAll('.sidebar-navigation .nav-item');
+  const sections = document.querySelectorAll('section, header');
 
-  // 스크롤 이벤트로 활성화 상태 업데이트
   window.addEventListener('scroll', () => {
-    const sections = document.querySelectorAll('section');
-    let currentSection = '';
+    const scrollPosition = window.scrollY;
 
     sections.forEach(section => {
-      const sectionTop = section.offsetTop - 100; // 약간의 오프셋
+      const sectionTop = section.offsetTop - 100; // 오프셋
       const sectionHeight = section.offsetHeight;
+      const sectionId = section.getAttribute('id');
 
-      if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-        currentSection = section.getAttribute('id');
-      }
-    });
-
-    navItems.forEach(item => {
-      const section = item.getAttribute('data-section');
-      if (section === currentSection) {
-        item.classList.add('active'); // 활성화
-      } else {
-        item.classList.remove('active'); // 비활성화
+      if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+        navItems.forEach(item => {
+          const target = item.getAttribute('data-section');
+          if (target === sectionId) {
+            item.classList.add('active');
+          } else {
+            item.classList.remove('active');
+          }
+        });
       }
     });
   });
