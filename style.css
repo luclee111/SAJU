@@ -77,10 +77,11 @@ body, html {
 
 /* 초기 상태에서 sticky-logo 숨기기 */
 #sticky-logo {
-  height: 30px; /* 원하는 크기로 설정 */
-  margin-left: 10px; /* small-logo와의 간격 */
+  height: 9px; /* 원하는 크기로 설정 */
+  margin-left: 75px; /* small-logo와의 간격 */
   opacity: 0;        /* 기본 숨김 (투명도 0) */
   visibility: hidden;  /* 기본 숨김 (공간 차지 안함, 접근성 트리에서 제외) */;
+  top: 56px;
 }
 
 /* 스티키 상태 로고 전환 (Opacity/Visibility 변경) */
@@ -102,7 +103,7 @@ body, html {
 .menu {
   position: absolute; /* 헤더 기준 절대 위치 */
   top: 50%; /* 헤더 세로 중앙 */
-  left: 20%;
+  left: 23%;
   transform: translateY(-50%); /* 정확한 중앙 정렬 */
   height: auto; /* 내용 높이 */
   z-index: 1001; /* 로고(z-index: 1000) 보다 위에 표시 */
@@ -151,6 +152,12 @@ body, html {
   #main-header #small-logo {
     height: 30px; /* 로고 크기 조정 */
     top: 1px;
+  }  
+
+ #main-header #sticky-logo {
+    height: 8px; /* 로고 크기 조정 */
+    top: 20px;
+    left: 20px;
   }  
 }
 
