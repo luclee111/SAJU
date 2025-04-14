@@ -248,26 +248,75 @@ section p {
   flex: 0 0 34%; /* 각 section이 화면 전체를 차지 */
 }
 
+/* 좌우 화살표 */
 .slider-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
   color: white;
   border: none;
   font-size: 2rem;
   cursor: pointer;
   z-index: 10;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .left-arrow {
-  left: 10px;
+  left: 20px;
 }
 
 .right-arrow {
-  right: 10px;
+  right: 20px;
 }
 
+/* 네비게이션 헬퍼 컨테이너 */
+.nav-helper-container {
+  display: flex;
+  gap: 10px;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+  border-radius: 10px;
+  z-index: 20;
+}
+
+/* 네비게이션 아이템 */
+.nav-helper-container .nav-item {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.nav-helper-container .nav-item img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* 호버 시 강조 */
+.nav-helper-container .nav-item:hover {
+  border-color: #FFD700;
+  transform: scale(1.1);
+}
+
+/* 현재 활성화된 섹션 */
+.nav-helper-container .nav-item.active {
+  border-color: #FFD700;
+}
 
 .detail-section {
   padding: 80px 20px;
