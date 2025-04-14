@@ -108,6 +108,8 @@ body, html {
 
 .menu-item a {
   text-decoration: none;
+  font-size: 18px; /* 원하는 글자 크기 */
+  font-weight: bold; /* 글자 굵게 */
   color: gray;
   padding: 5px 15px;
   transition: color 0.3s ease, background-color 0.3s ease;
