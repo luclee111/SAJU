@@ -1,17 +1,6 @@
 // GSAP 애니메이션 (기존 코드)
 gsap.registerPlugin(ScrollTrigger);
 
-gsap.to("#bg-illustration", {
-  opacity: 1,
-  duration: 2,
-  ease: "power2.out"
-});
-
-gsap.to("header .spoiler-warning", { delay: 0.3, opacity: 1, y: 0, duration: 1, ease: "power2.out" });
-gsap.to("header h1", { delay: 0.6, opacity: 1, y: 0, duration: 1, ease: "power2.out" });
-gsap.to("header p", { delay: 0.9, opacity: 1, y: 0, duration: 1, ease: "power2.out" });
-gsap.to(".scroll-btn", { delay: 1.2, opacity: 1, y: 0, duration: 1, ease: "power2.out" });
-
 gsap.utils.toArray("section").forEach(section => {
   gsap.to(section, {
     scrollTrigger: {
