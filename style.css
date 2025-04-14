@@ -48,8 +48,8 @@ body, html {
 .logo img {
   height: 150px;
   transition: transform 0.3s ease, height 0.3s ease, margin 0.3s ease; /* 애니메이션 효과 */
-  margin-top: 10px; /* 위쪽 여백 */
-  margin-left: 10px; /* 왼쪽 여백 */
+  margin-top: 100px; /* 위쪽 여백 */
+  margin-left: 100px; /* 왼쪽 여백 */
 }
 
 #main-header.sticky #large-logo {
@@ -66,14 +66,22 @@ body, html {
 }
 
 /* 메뉴 스타일 */
+
+.menu {
+  display: flex;
+  align-items: center; /* 메뉴를 세로 중앙 정렬 */
+  height: 100%; /* 헤더 높이에 맞춤 */
+}
+
 .menu ul {
   list-style: none;
   display: flex;
   gap: 20px;
+  align-items: center; /* 메뉴 항목을 세로 중앙 정렬*/
   justify-content: center; /* 메뉴 중앙 정렬 */
   margin: 0;
   padding: 0;
-  margin-left: 200px; /* 원하는 왼쪽 여백 추가 */
+  margin-left: 300px; /* 원하는 왼쪽 여백 추가 */
 }
 
 .menu-item a {
