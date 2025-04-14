@@ -72,6 +72,32 @@ window.onload = function() {
   });
 };
 
+// Slider 용 자바 스크립트 추가//
+const sliderContainer = document.querySelector('.slider-container');
+const leftArrow = document.querySelector('.left-arrow');
+const rightArrow = document.querySelector('.right-arrow');
+
+let currentIndex = 0;
+
+function updateSliderPosition() {
+  sliderContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+}
+
+leftArrow.addEventListener('click', () => {
+  if (currentIndex > 0) {
+    currentIndex--;
+    updateSliderPosition();
+  }
+});
+
+rightArrow.addEventListener('click', () => {
+  if (currentIndex < 2) { // section의 개수 - 1
+    currentIndex++;
+    updateSliderPosition();
+  }
+});
+
+
 // ------------------- 왕관 차트 관련 JavaScript -------------------
 
 const subHoverSubMapping = {
