@@ -314,14 +314,15 @@ html, body {
 
 .chart-container {
   position: relative;
-  width: 900px;
-  height: 700px;
-  margin: 0 auto;
-  overflow: visible;
+  width: calc(100% + 20px); /* 좌우 스크롤 여유 공간 추가 */
+  height: auto; /* 높이 자동 조정 */
+  margin-left: -10px; /* 왼쪽 잘림 방지 */
+  overflow-x: auto; /* 가로 스크롤 활성화 */
+  overflow-y: hidden; /* 세로 스크롤 비활성화 */
+  -webkit-overflow-scrolling: touch; /* iOS 부드러운 스크롤 */
   background: radial-gradient(circle, #000000 0%, #242423 100%);
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-sizing: border-box; /* 패딩 포함하여 크기 계산 */
 }
-
 .center-icon {
   position: absolute;
   width: 1500px;
@@ -333,8 +334,8 @@ html, body {
 }
 
 .chart-container svg {
-  width: 100%;
-  height: 100%;
+  width: 900px;
+  height: 700px;
   overflow: visible;
 }
 
@@ -461,6 +462,11 @@ html, body {
   box-shadow: 0 1px 3px rgba(0,0,0,0.08);
   font-weight: 1400;                         /* 글자도 굵게 */
   border: 1px solid #f0c36d;                /* 테두리로 더 강조 */
+}
+
+/* 모달이 열릴 때 body 스크롤 비활성화 */
+body.modal-open {
+  overflow: hidden;
 }
 
 /* Fortune Cards CSS - Consistent with Existing Design */
@@ -712,6 +718,30 @@ body, html {
     .section-title {
         font-size: 1.5rem;
     }
+
+  #detailed-analysis {
+  display: block; /* section의 display: flex 설정을 무시하고 기본 블록 레벨로 변경 */
+  padding: 40px 0; /* flex 해제 시 상하 패딩만 필요할 수 있음 (좌우 패딩 제거 또는 조정) */
+                  /* 기존 padding: 40px 20px; 이었다면 필요에 따라 좌우 패딩 복원 */
+}
+
+  .chart-container {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch; /* iOS 부드러운 스크롤 */
+    width: 100%;
+    height: 70%
+    margin: 0 auto; /* 가운데 정렬 */
+    padding-left: 10px; /* 왼쪽에 스크롤할 여백 생성 (값은 디자인에 맞게 조절) */
+    box-sizing: border-box; /* 패딩이 너비에 포함되도록 */
+  }
+  
+  /* SVG 너비는 유지하되, 컨테이너 패딩으로 인해 왼쪽 스크롤 가능 */
+  .chart-container svg {
+    width: 900px; /* 기존 너비 유지 */
+    height: 700px;
+    flex-shrink: 0; /* SVG가 컨테이너 크기에 맞춰 줄어들지 않도록 */
+  }
 }
 
 
@@ -757,6 +787,18 @@ body, html {
   narrative-description {
     font-size: calc(0.8rem + 0.5vw);
   }
+  
+ #four-pillars-table {
+    width: 90%; /* 화면 너비의 90%로 조정하여 좌우 여백 확보 */
+    margin: 0 auto; /* 표를 화면 중앙에 정렬 */
+    border-spacing: 8px; /* 셀 간 간격 추가 */
+  }
+
+  #four-pillars-table th, 
+  #four-pillars-table td {
+    padding: 10px; /* 셀 내부 여백 추가 */
+    font-size: 0.9rem; /* 글자 크기를 조금 줄여 모바일에 적합하게 설정 */
+  }
 }
 
 @media (min-width: 768px) {
@@ -795,11 +837,6 @@ body, html {
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
   width: 100%;
-}
-
-.chart-container svg {
-  width: 900px;
-  height: 700px;
 }
 
 /* 기본 Swiper 스타일 덮어쓰기 */
