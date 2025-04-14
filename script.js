@@ -74,15 +74,19 @@ window.onload = function() {
 
 // Slider 용 자바 스크립트 추가//
 const sliderContainer = document.querySelector('.slider-container');
+const sections = document.querySelectorAll('.slider-container section');
 const leftArrow = document.querySelector('.left-arrow');
 const rightArrow = document.querySelector('.right-arrow');
 
-let currentIndex = 0;
+let currentIndex = 0; // 현재 섹션 인덱스
+const sectionWidth = sections[0].offsetWidth; // 각 섹션의 너비 (34% 기준)
 
+// 슬라이더 위치 업데이트 함수
 function updateSliderPosition() {
-  sliderContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+  sliderContainer.style.transform = `translateX(-${currentIndex * sectionWidth}px)`;
 }
 
+// 왼쪽 화살표 클릭 이벤트
 leftArrow.addEventListener('click', () => {
   if (currentIndex > 0) {
     currentIndex--;
@@ -90,11 +94,18 @@ leftArrow.addEventListener('click', () => {
   }
 });
 
+// 오른쪽 화살표 클릭 이벤트
 rightArrow.addEventListener('click', () => {
-  if (currentIndex < 2) { // section의 개수 - 1
+  if (currentIndex < sections.length - 1) {
     currentIndex++;
     updateSliderPosition();
   }
+});
+
+// 창 크기 변경 시 섹션 너비 업데이트
+window.addEventListener('resize', () => {
+  const newSectionWidth = sections[0].offsetWidth;
+  sliderContainer.style.transform = `translateX(-${currentIndex * newSectionWidth}px)`;
 });
 
 
