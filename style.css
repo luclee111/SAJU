@@ -307,6 +307,12 @@ section p {
   max-height: 100%;
 }
 
+/* 호버 시 강조 with hover-active */
+.nav-helper-container .nav-item.hover-active {
+  border-color: #FFD700; /* 강조 테두리 색상 */
+  transform: scale(1.1); /* 약간 확대 */
+}
+
 /* 호버 시 강조 */
 .nav-helper-container .nav-item:hover {
   border-color: #FFD700;
