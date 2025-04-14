@@ -99,7 +99,7 @@ body, html {
 .menu ul {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 40px;
   align-items: center; /* 메뉴 항목을 세로 중앙 정렬*/
   justify-content: center; /* 메뉴 중앙 정렬 */
   margin: 0;
@@ -111,7 +111,7 @@ body, html {
   font-size: 18px; /* 원하는 글자 크기 */
   font-weight: bold; /* 글자 굵게 */
   color: gray;
-  padding: 5px 15px;
+  padding: 5px 35px;
   transition: color 0.3s ease, background-color 0.3s ease;
 }
 
