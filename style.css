@@ -90,6 +90,7 @@ body, html {
 .menu {
   position: absolute; /* 헤더 기준 절대 위치 */
   top: 50%; /* 헤더 세로 중앙 */
+  left: 20%;
   transform: translateY(-50%); /* 정확한 중앙 정렬 */
   height: auto; /* 내용 높이 */
   z-index: 1001; /* 로고(z-index: 1000) 보다 위에 표시 */
@@ -103,12 +104,11 @@ body, html {
   justify-content: center; /* 메뉴 중앙 정렬 */
   margin: 0;
   padding: 0;
-  margin-left: 500px; /* 원하는 왼쪽 여백 추가 */
 }
 
 .menu-item a {
   text-decoration: none;
-  color: lightgray;
+  color: gray;
   padding: 5px 15px;
   transition: color 0.3s ease, background-color 0.3s ease;
 }
