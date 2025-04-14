@@ -124,6 +124,18 @@ PaljanavItems.forEach((item, index) => {
   });
 });
 
+// 네비게이션 아이템에 호버 효과 추가
+PaljanavItems.forEach((item) => {
+  item.addEventListener('mouseenter', () => {
+    item.classList.add('hover-active');
+  });
+
+  item.addEventListener('mouseleave', () => {
+    item.classList.remove('hover-active');
+  });
+});
+
+
 // 창 크기 변경 시 슬라이더 위치 재조정 (기존 코드 유지)
 window.addEventListener('resize', () => {
   updateSliderPosition();
