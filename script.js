@@ -75,23 +75,33 @@ window.onload = function() {
 // Slider 용 자바 스크립트 추가//
 const sliderContainer = document.querySelector('.slider-container');
 const sections = document.querySelectorAll('.slider-container section');
+const PaljanavItems = document.querySelectorAll('.nav-helper-container .nav-item');
 const leftArrow = document.querySelector('.left-arrow');
 const rightArrow = document.querySelector('.right-arrow');
 
 let currentIndex = 0;
 
-// 섹션 너비 계산
+// 섹션 너비 계산 함수 (기존 코드 유지)
 function getSectionWidth() {
-  return sections[0].offsetWidth; // 각 섹션의 실제 너비를 계산
+  return sections[0].offsetWidth;
 }
 
-// 슬라이더 위치 업데이트
+// 슬라이더 이동 함수
 function updateSliderPosition() {
   const sectionWidth = getSectionWidth();
   sliderContainer.style.transform = `translateX(-${currentIndex * sectionWidth}px)`;
+
+  // 활성화된 네비게이션 아이템 업데이트
+  PaljanavItems.forEach((item, index) => {
+    if (index === currentIndex) {
+      item.classList.add('active');
+    } else {
+      item.classList.remove('active');
+    }
+  });
 }
 
-// 왼쪽 화살표 클릭
+// 화살표 클릭 이벤트
 leftArrow.addEventListener('click', () => {
   if (currentIndex > 0) {
     currentIndex--;
@@ -99,7 +109,6 @@ leftArrow.addEventListener('click', () => {
   }
 });
 
-// 오른쪽 화살표 클릭
 rightArrow.addEventListener('click', () => {
   if (currentIndex < sections.length - 1) {
     currentIndex++;
@@ -107,11 +116,21 @@ rightArrow.addEventListener('click', () => {
   }
 });
 
-// 창 크기 변경 시 섹션 너비 업데이트
-window.addEventListener('resize', () => {
-  updateSliderPosition(); // 창 크기 변경 시 슬라이더 위치 재조정
+// 네비게이션 아이템 클릭 이벤트
+PaljanavItems.forEach((item, index) => {
+  item.addEventListener('click', () => {
+    currentIndex = index;
+    updateSliderPosition();
+  });
 });
 
+// 창 크기 변경 시 슬라이더 위치 재조정 (기존 코드 유지)
+window.addEventListener('resize', () => {
+  updateSliderPosition();
+});
+
+// 초기 상태 설정
+updateSliderPosition();
 
 // ------------------- 왕관 차트 관련 JavaScript -------------------
 
