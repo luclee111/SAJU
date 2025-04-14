@@ -35,6 +35,28 @@ function setVh() {
 window.addEventListener('resize', setVh);
 window.addEventListener('load', setVh);
 
+document.addEventListener("DOMContentLoaded", function () {
+  const header = document.getElementById("main-header");
+
+  // 스크롤 이벤트 처리
+  window.addEventListener("scroll", function () {
+    if (window.scrollY > 50) {
+      header.classList.add("sticky");
+    } else {
+      header.classList.remove("sticky");
+    }
+  });
+
+  // 메뉴 활성화 처리 (예: 클릭 시 active 클래스 추가)
+  const menuItems = document.querySelectorAll(".menu-item a");
+  menuItems.forEach(item => {
+    item.addEventListener("click", function () {
+      menuItems.forEach(link => link.parentElement.classList.remove("active"));
+      this.parentElement.classList.add("active");
+    });
+  });
+});
+
 // HTML, body의 스크롤 설정
 document.addEventListener('DOMContentLoaded', function () {
     document.body.style.scrollBehavior = 'smooth'; // 부드러운 스크롤
