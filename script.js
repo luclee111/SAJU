@@ -1068,34 +1068,30 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // 사이드바 네비게이션 관련
 document.addEventListener('DOMContentLoaded', () => {
-  const sections = document.querySelectorAll('section, .landing-content, .slider');
+  const sections = document.querySelectorAll('#landing-content, #slider, #detailed-analysis, #fortune-summary, #final-narrative');
   const navItems = document.querySelectorAll('.sidebar-navigation .nav-item');
 
   function activateNavItemOnScroll() {
-    let currentSectionId = '';
+  let currentSectionId = '';
 
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.offsetHeight;
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.offsetHeight;
 
-      if (pageYOffset >= sectionTop - sectionHeight / 3) {
-        if (section.id) {
-          currentSectionId = section.id;
-        } else if (section.classList.contains('slider')) {
-          currentSectionId = 'slider';
-        }
-      }
-    });
+    if (pageYOffset >= sectionTop - window.innerHeight / 3) {
+      currentSectionId = section.getAttribute('id');
+    }
+  });
 
-    navItems.forEach(item => {
-      const itemSection = item.getAttribute('data-section');
-      if (itemSection === currentSectionId) {
-        item.classList.add('active');
-      } else {
-        item.classList.remove('active');
-      }
-    });
-  }
+  navItems.forEach(item => {
+    const itemSection = item.getAttribute('data-section');
+    if (itemSection === currentSectionId) {
+      item.classList.add('active');
+    } else {
+      item.classList.remove('active');
+    }
+  });
+}
 
   // ✅ 페이지 로드 직후에도 활성화 상태 업데이트!
   activateNavItemOnScroll();
