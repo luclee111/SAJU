@@ -278,7 +278,8 @@ section p {
 /* 네비게이션 헬퍼 컨테이너 */
 .nav-helper-container {
   display: flex;
-  gap: 10px;
+  align-items: center;
+  gap: 20px;
   position: absolute;
   bottom: 20px;
   left: 50%;
