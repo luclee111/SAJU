@@ -1068,7 +1068,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // 사이드바 네비게이션 관련
  document.addEventListener('DOMContentLoaded', () => {
-  const sections = document.querySelectorAll('section');
+  const sections = document.querySelectorAll('section, .landing-content, .slider');
   const navItems = document.querySelectorAll('.sidebar-navigation .nav-item');
 
   function activateNavItemOnScroll() {
