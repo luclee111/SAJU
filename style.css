@@ -360,7 +360,7 @@ section p {
   display: flex;
   align-items: center;
   gap: 20px;
-  position: absolute;
+  position: fixed;
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
