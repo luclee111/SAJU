@@ -155,9 +155,9 @@ body, html {
   }  
 
  #main-header #sticky-logo {
-    height: 8px; /* 로고 크기 조정 */
-    top: 20px;
-    left: 20px;
+    height: 26px; /* 로고 크기 조정 */
+    top: 5px;
+    left: -6px;
   }  
 }
 
