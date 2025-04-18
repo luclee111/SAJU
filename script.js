@@ -1045,27 +1045,73 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // 사이드바 네비게이션 관련
-  const navItems = document.querySelectorAll('.sidebar-navigation .nav-item');
-  const sections = document.querySelectorAll('section, header');
+document.addEventListener('DOMContentLoaded', () => {
+    const navItems = document.querySelectorAll('.sidebar-navigation .nav-item');
+    const sections = document.querySelectorAll('section, header');
+    const sliderContainer = document.querySelector('.slider-container');
+    const slides = document.querySelectorAll('.slider-container section'); // 슬라이더 내부 섹션
+    let currentSlideIndex = 0; // 슬라이더의 현재 인덱스
 
-  window.addEventListener('scroll', () => {
-    const scrollPosition = window.scrollY;
+    // 스크롤 이벤트 처리
+    window.addEventListener('scroll', () => {
+        const scrollPosition = window.scrollY;
 
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 100; // 오프셋
-      const sectionHeight = section.offsetHeight;
-      const sectionId = section.getAttribute('id');
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 100; // 오프셋
+            const sectionHeight = section.offsetHeight;
+            const sectionId = section.getAttribute('id');
 
-      if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-        navItems.forEach(item => {
-          const target = item.getAttribute('data-section');
-          if (target === sectionId) {
-            item.classList.add('active');
-          } else {
-            item.classList.remove('active');
-          }
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                navItems.forEach(item => {
+                    const target = item.getAttribute('data-section');
+                    if (target === sectionId) {
+                        item.classList.add('active');
+                    } else {
+                        item.classList.remove('active');
+                    }
+                });
+
+                // slider-container에 해당하는 섹션이 활성화되었을 때
+                if (sectionId === 'slider-container') {
+                    updateActiveNavForSlider();
+                }
+            }
         });
-      }
     });
-  });
+
+    // 슬라이더의 현재 슬라이드 상태를 기준으로 nav-item 업데이트
+    function updateActiveNavForSlider() {
+        navItems.forEach(item => {
+            const target = item.getAttribute('data-section');
+            if (target === 'birth-chart' && currentSlideIndex === 0) {
+                item.classList.add('active');
+            } else if (target === 'other-section' && currentSlideIndex === 1) {
+                item.classList.add('active');
+            } else {
+                item.classList.remove('active');
+            }
+        });
+    }
+
+    // 슬라이더 이동 시 현재 슬라이드 인덱스를 업데이트
+    const leftArrow = document.querySelector('.left-arrow');
+    const rightArrow = document.querySelector('.right-arrow');
+
+    if (leftArrow) {
+        leftArrow.addEventListener('click', () => {
+            if (currentSlideIndex > 0) {
+                currentSlideIndex--;
+                updateActiveNavForSlider();
+            }
+        });
+    }
+
+    if (rightArrow) {
+        rightArrow.addEventListener('click', () => {
+            if (currentSlideIndex < slides.length - 1) {
+                currentSlideIndex++;
+                updateActiveNavForSlider();
+            }
+        });
+    }
 });
