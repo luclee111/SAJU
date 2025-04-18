@@ -1071,37 +1071,37 @@ document.addEventListener('DOMContentLoaded', () => {
   const sections = document.querySelectorAll('#landing-content, #slider, #detailed-analysis, #fortune-summary, #final-narrative');
   const navItems = document.querySelectorAll('.sidebar-navigation .nav-item');
 
- function activateNavItemOnScroll() {
-  let currentSectionId = '';
+  function activateNavItemOnScroll() {
+    let currentSectionId = 'landing-content'; // 기본값을 landing-content로 세팅
 
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop;
-    const sectionHeight = section.offsetHeight;
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.offsetHeight;
 
-    if (window.scrollY >= sectionTop - 10) {  // 🎯 아주 살짝 (10px)만 여유 줌
-      currentSectionId = section.getAttribute('id');
-    }
-  });
+      if (window.scrollY >= sectionTop - window.innerHeight / 3) {
+        currentSectionId = section.getAttribute('id');
+      }
+    });
 
-  navItems.forEach(item => {
-    const itemSection = item.getAttribute('data-section');
-    if (itemSection === currentSectionId) {
-      item.classList.add('active');
-    } else {
-      item.classList.remove('active');
-    }
-  });
-}
+    navItems.forEach(item => {
+      const itemSection = item.getAttribute('data-section');
+      if (itemSection === currentSectionId) {
+        item.classList.add('active');
+      } else {
+        item.classList.remove('active');
+      }
+    });
+  }
 
-  // ✅ 페이지 로드 직후에도 활성화 상태 업데이트!
+  // ✨ 페이지 로딩 직후에도 활성화
   activateNavItemOnScroll();
 
   window.addEventListener('scroll', activateNavItemOnScroll);
 
-  // 사이드바 클릭 시에도 active 강제 업데이트
+  // 클릭 시에도 살짝 딜레이 주고 강제 갱신
   navItems.forEach(item => {
     const link = item.querySelector('a');
-    link.addEventListener('click', (e) => {
+    link.addEventListener('click', () => {
       setTimeout(activateNavItemOnScroll, 300);
     });
   });
