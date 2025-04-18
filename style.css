@@ -145,7 +145,7 @@ body, html {
   }
 
   #main-header #large-logo {
-    height: 100px; /* 로고 크기 조정 */
+    height: 90px; /* 로고 크기 조정 */
     top: 4px;
   }
 
