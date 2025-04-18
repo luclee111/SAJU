@@ -1063,7 +1063,9 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.style.overflow = ''; // 스크롤 잠금 해제
     });
   });
+});
 
+  
   // 사이드바 네비게이션 관련
  document.addEventListener('DOMContentLoaded', () => {
   const sections = document.querySelectorAll('section');
