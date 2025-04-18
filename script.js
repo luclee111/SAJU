@@ -1071,14 +1071,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const sections = document.querySelectorAll('#landing-content, #slider, #detailed-analysis, #fortune-summary, #final-narrative');
   const navItems = document.querySelectorAll('.sidebar-navigation .nav-item');
 
-  function activateNavItemOnScroll() {
+ function activateNavItemOnScroll() {
   let currentSectionId = '';
 
   sections.forEach(section => {
     const sectionTop = section.offsetTop;
     const sectionHeight = section.offsetHeight;
 
-    if (pageYOffset >= sectionTop - window.innerHeight / 3) {
+    if (window.scrollY >= sectionTop - 10) {  // 🎯 아주 살짝 (10px)만 여유 줌
       currentSectionId = section.getAttribute('id');
     }
   });
