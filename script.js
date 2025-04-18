@@ -1067,7 +1067,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   
   // 사이드바 네비게이션 관련
- document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
   const sections = document.querySelectorAll('section, .landing-content, .slider');
   const navItems = document.querySelectorAll('.sidebar-navigation .nav-item');
 
@@ -1079,7 +1079,11 @@ document.addEventListener('DOMContentLoaded', () => {
       const sectionHeight = section.offsetHeight;
 
       if (pageYOffset >= sectionTop - sectionHeight / 3) {
-        currentSectionId = section.getAttribute('id');
+        if (section.id) {
+          currentSectionId = section.id;
+        } else if (section.classList.contains('slider')) {
+          currentSectionId = 'slider';
+        }
       }
     });
 
@@ -1093,6 +1097,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  window.addEventListener('scroll', activateNavItemOnScroll);
-});
+  // ✅ 페이지 로드 직후에도 활성화 상태 업데이트!
+  activateNavItemOnScroll();
 
+  window.addEventListener('scroll', activateNavItemOnScroll);
+
+  // 사이드바 클릭 시에도 active 강제 업데이트
+  navItems.forEach(item => {
+    const link = item.querySelector('a');
+    link.addEventListener('click', (e) => {
+      setTimeout(activateNavItemOnScroll, 300);
+    });
+  });
+});
