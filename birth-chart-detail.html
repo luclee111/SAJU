@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>대운 상세 분석</title>
+  
+    <!-- 구글 폰트: Noto Serif KR -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR&display=swap" rel="stylesheet">
+
+  <!-- Swiper.js CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  
+  <!-- 기존 CSS 파일 링크 -->
+  <link rel="stylesheet" href="style.css">
+</head>
+  
+<body>          
+  <!-- HTML 부분 - 이것을 <body> 태그 바로 아래에 추가하세요 -->
+    <div class="sidebar-navigation">
+      <ul class="nav-list">
+        <li class="nav-item" data-section="header">
+          <a href="#" class="nav-link">
+            <span class="nav-dot"></span>
+            <span class="nav-text">메인</span>
+          </a>
+        </li>
+        <li class="nav-item" data-section="birth-chart">
+          <a href="#birth-chart" class="nav-link">
+            <span class="nav-dot"></span>
+            <span class="nav-text">팔자</span>
+          </a>
+        </li>
+        <li class="nav-item" data-section="daewoon">
+          <a href="#daewoon" class="nav-link">
+            <span class="nav-dot"></span>
+            <span class="nav-text">대운</span>
+          </a>
+        </li>
+        <li class="nav-item" data-section="sewoon">
+          <a href="#sewoon" class="nav-link">
+            <span class="nav-dot"></span>
+            <span class="nav-text">세운</span>
+          </a>
+        </li>
+        <li class="nav-item" data-section="detailed-analysis">
+          <a href="#detailed-analysis" class="nav-link">
+            <span class="nav-dot"></span>
+            <span class="nav-text">상세</span>
+          </a>
+        </li>
+        <li class="nav-item" data-section="fortune-summary">
+          <a href="#fortune-summary" class="nav-link">
+            <span class="nav-dot"></span>
+            <span class="nav-text">카드요약</span>
+          </a>
+        </li>
+        <li class="nav-item" data-section="final-narrative">
+          <a href="#final-narrative" class="nav-link">
+            <span class="nav-dot"></span>
+            <span class="nav-text">마지막</span>
+          </a>
+        </li>
+      </ul>
+      <div class="nav-line"></div>
+    </div>
+
+    <div class="fullscreen-menu">
+        <button class="menu-close" aria-label="Close Menu">✖</button>
+        <ul class="nav-list">
+          <li class="nav-item" data-section="header">
+            <a href="#" class="nav-link">메인</a>
+          </li>
+          <li class="nav-item" data-section="birth-chart">
+            <a href="#birth-chart" class="nav-link">팔자</a>
+          </li>
+          <li class="nav-item" data-section="daewoon">
+            <a href="#daewoon" class="nav-link">대운</a>
+          </li>
+          <li class="nav-item" data-section="sewoon">
+            <a href="#sewoon" class="nav-link">세운</a>
+          </li>
+          <li class="nav-item" data-section="detailed-analysis">
+            <a href="#detailed-analysis" class="nav-link">상세</a>
+          </li>
+          <li class="nav-item" data-section="fortune-summary">
+            <a href="#fortune-summary" class="nav-link">카드요약</a>
+          </li>
+          <li class="nav-item" data-section="final-narrative">
+            <a href="#final-narrative" class="nav-link">마지막</a>
+          </li>
+        </ul>
+      </div>
+  
+  <!-- 페이지 헤더 -->
+  <header id="main-header" class="sticky-header">
+  <div class="header-container">
+    <!-- 로고 -->
+    <div class="logo">
+      <img id="large-logo" src="./images/Logo.png" alt="큰 로고">
+      <img id="small-logo" src="./images/small-logo.png" alt="작은 로고">
+      <img id="sticky-logo" src="./images/sticky-logo.png" alt="스티키 로고">
+    </div>
+    <!-- 메뉴 -->
+    <nav class="menu">
+      <ul>
+        <li class="menu-item active"><a href="#header">홈</a></li>
+        <li class="menu-item"><a href="#birth-chart">팔자소개</a></li>
+        <li class="menu-item"><a href="#fortune-summary">카드요약</a></li>
+        <li class="menu-item"><a href="#final-narrative">마지막</a></li>
+      </ul>
+    </nav>
+    <div class="hamburger-menu">
+      ☰ <!-- 햄버거 아이콘 -->
+    </div>
+  </div>
+</header>
+
+<!-- 주인공 상세 분석 섹션 (예시) -->
+  <section id="birth-chart-detail" class="detail-section">
+    <h3>🔥🐵황금 원숭이</h3>
+    <p class="highlight-text">병신일주(火猴)의 기운을 타고난 그는, 가만히 있어도 존재감이 철철 넘치는 타입.</p>
+    <p>한가운데, 햇빛을 받아 반짝반짝 빛나는 황금빛 원숭이는 누구일까요? 
+    네, 맞아요. 저기 당당하게 앉아 있는건, 바로 호상님입니다!</p>
+    
+    <p>재치 있고, 머리 회전 빠르고, 거기다 민첩하기까지!
+    위기 앞에서도 "어떻게든 되겠지~" 하고 싱긋 웃을 줄 아는, 그야말로 영민한 생존 마스터죠.</p>
+    
+    <p>주위를 감싸고 있는 건 울창한 소나무 숲.
+    <strong>무인월주(土虎)</strong>의 기운을 닮아 단단한 뿌리로 땅을 붙잡고 있어요.
+    이건 마치 호상님의 내면 같죠. 흔들릴 것 같다가도 절대 무너지지 않는 멘탈과 끈기.
+    "아, 이 사람 은근히 깊다?" 하는 순간이 분명 올 겁니다.</p>
+    
+    <p>그 아래에 맑게 흐르는 물 그리고 살포시 올라오는 안개.
+    <strong>을해년주(木猪)</strong>가 그려낸 풍경인데요—보기엔 조용하지만 속엔 깊고 넓은 에너지가 숨어 있어요.
+    호상님도 마찬가지죠. 겉으론 장난기 많아 보여도, 속엔 꽤 진지한 생각들이 가득하거든요.</p>
+    
+    <p>그 너머 멀리 보이는, 숲 너머 폭포와 연못.
+    네, 바로 <strong>임진시주(水龙)</strong>의 상징입니다.
+    끊임없이 흐르며 길을 만들고, 언젠간 잠든 용처럼 깨어날 그 힘!
+    호상님이 앞으로 어떤 모습으로 변할지, 누구보다 기대되는 이유예요.</p>
+    <ul>
+      <li>#다재다능 #밝고 명랑 #넓은 활동 반경 #기획력 #예의 바름 #예술적 감각 #깔끔한 일처리</li>
+    </ul>
+  </section>
+  <!-- 기존 JavaScript 파일 연결 -->
+  <script src="script.js"></script>
+</body>
+</html>
+
+  
