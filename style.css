@@ -250,9 +250,7 @@ section p {
 
 /* 좌우 화살표 */
 .slider-arrow {
-  position: absolute;
   top: 50%;
-  transform: translateY(-50%);
   background-color: rgba(0, 0, 0, 0.7);
   color: white;
   border: none;
