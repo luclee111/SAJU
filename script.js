@@ -61,6 +61,10 @@ window.onload = function() {
   });
 };
 
+document.querySelector('.cta-button').addEventListener('click', () => {
+  document.querySelector('.slider').scrollIntoView({ behavior: 'smooth' });
+});
+
 // Slider 용 자바 스크립트 추가//
 const sliderContainer = document.querySelector('.slider-container');
 const sections = document.querySelectorAll('.slider-container section');
