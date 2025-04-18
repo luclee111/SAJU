@@ -65,6 +65,22 @@ document.querySelector('.cta-button').addEventListener('click', () => {
   document.querySelector('.slider').scrollIntoView({ behavior: 'smooth' });
 });
 
+window.addEventListener('scroll', function() {
+  const slider = document.querySelector('.slider');
+  const navHelper = document.querySelector('.nav-helper-container');
+
+  const sliderTop = slider.offsetTop;
+  const sliderBottom = sliderTop + slider.offsetHeight;
+  const scrollPos = window.scrollY + window.innerHeight / 2;
+
+  if (scrollPos >= sliderTop && scrollPos <= sliderBottom) {
+    navHelper.style.display = 'flex';  // ✅ slider 보일 때만 나타나
+  } else {
+    navHelper.style.display = 'none';  // ✅ slider 영역 벗어나면 숨김
+  }
+});
+
+
 // Slider 용 자바 스크립트 추가//
 const sliderContainer = document.querySelector('.slider-container');
 const sections = document.querySelectorAll('.slider-container section');
