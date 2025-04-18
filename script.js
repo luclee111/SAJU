@@ -1065,27 +1065,32 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // 사이드바 네비게이션 관련
+ document.addEventListener('DOMContentLoaded', () => {
+  const sections = document.querySelectorAll('section');
   const navItems = document.querySelectorAll('.sidebar-navigation .nav-item');
-  const sections = document.querySelectorAll('section, header');
 
-  window.addEventListener('scroll', () => {
-    const scrollPosition = window.scrollY;
+  function activateNavItemOnScroll() {
+    let currentSectionId = '';
 
     sections.forEach(section => {
-      const sectionTop = section.offsetTop - 100; // 오프셋
+      const sectionTop = section.offsetTop;
       const sectionHeight = section.offsetHeight;
-      const sectionId = section.getAttribute('id');
 
-      if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-        navItems.forEach(item => {
-          const target = item.getAttribute('data-section');
-          if (target === sectionId) {
-            item.classList.add('active');
-          } else {
-            item.classList.remove('active');
-          }
-        });
+      if (pageYOffset >= sectionTop - sectionHeight / 3) {
+        currentSectionId = section.getAttribute('id');
       }
     });
-  });
+
+    navItems.forEach(item => {
+      const itemSection = item.getAttribute('data-section');
+      if (itemSection === currentSectionId) {
+        item.classList.add('active');
+      } else {
+        item.classList.remove('active');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', activateNavItemOnScroll);
 });
+
