@@ -1072,15 +1072,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const navItems = document.querySelectorAll('.sidebar-navigation .nav-item');
 
   function activateNavItemOnScroll() {
-    let currentSectionId = '';
-
-    let minDistance = Infinity;
+    let currentSectionId = 'landing-content'; // 기본값을 landing-content로 세팅
 
     sections.forEach(section => {
-      const sectionTop = section.getBoundingClientRect().top;
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.offsetHeight;
 
-      if (sectionTop >= 0 && sectionTop < minDistance) {
-        minDistance = sectionTop;
+      if (window.scrollY >= sectionTop - window.innerHeight / 3) {
         currentSectionId = section.getAttribute('id');
       }
     });
@@ -1095,6 +1093,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ✨ 페이지 로딩 직후에도 활성화
+  activateNavItemOnScroll();
+
   window.addEventListener('scroll', activateNavItemOnScroll);
-  activateNavItemOnScroll(); // 로딩 직후에도 바로 감지
+
+  // 클릭 시에도 살짝 딜레이 주고 강제 갱신
+  navItems.forEach(item => {
+    const link = item.querySelector('a');
+    link.addEventListener('click', () => {
+      setTimeout(activateNavItemOnScroll, 300);
+    });
+  });
 });
