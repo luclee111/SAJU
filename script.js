@@ -1155,15 +1155,16 @@ document.addEventListener('DOMContentLoaded', function () {
   updateActiveNavItem();
 });
 
-//slider-help-icon overlay script
-// 도움말 열기
-document.getElementById('slider-help-icon').addEventListener('click', () => {
-  document.getElementById('slider-nav-guide').classList.remove('hidden');
+const helpIcon = document.getElementById('slider-help-icon');
+const guideOverlay = document.getElementById('slider-nav-guide');
+const guideCloseBtn = document.getElementById('slider-guide-close');
+
+helpIcon.addEventListener('click', () => {
+  guideOverlay.classList.add('active');
 });
 
-// 도움말 닫기
-document.getElementById('slider-guide-close').addEventListener('click', () => {
-  document.getElementById('slider-nav-guide').classList.add('hidden');
+guideCloseBtn.addEventListener('click', () => {
+  guideOverlay.classList.remove('active');
 });
 
 // 슬라이더 안 가이드용 swiper 초기화
