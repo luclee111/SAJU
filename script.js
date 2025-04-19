@@ -1176,3 +1176,29 @@ const guideSwiper = new Swiper('.guide-swiper', {
   }
 });
 
+const guideSwiper = new Swiper('.guide-swiper', {
+  loop: true,
+  centeredSlides: true, // 슬라이드 중앙 정렬
+  slidesPerView: 1,      // 기본 1개
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false,
+  },
+  breakpoints: {
+    768: {  // 화면 width 768px 이상일 때
+      slidesPerView: 1,
+    },
+    1024: { // 화면 width 1024px 이상일 때
+      slidesPerView: 1,
+    }
+  }
+});
+
