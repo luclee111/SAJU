@@ -1102,6 +1102,7 @@ body, html {
 
 .swiper-slide {
   display: flex;
+  flex-direction: column; /* 아이템을 위아래 정렬 */
   justify-content: center;
   align-items: center;
 }
@@ -1525,4 +1526,12 @@ body, html {
   color: white;
   margin-top: 10px;
   font-size: 1.2rem;
+  word-break: keep-all;
+}
+
+.guide-swiper {
+  width: 100%;
+  height: 100%;
+  padding: 20px 0; /* 위아래 여백 추가 */
+  position: relative; /* 부모를 relative로 */
 }
