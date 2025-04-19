@@ -158,6 +158,19 @@ window.addEventListener('resize', () => {
 // 초기 상태 설정
 updateSliderPosition();
 
+document.querySelectorAll('.detail-btn').forEach((btn, index) => {
+  btn.addEventListener('click', () => {
+    sessionStorage.setItem('sliderIndex', index); // 현재 슬라이더 인덱스 저장
+  });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const savedIndex = sessionStorage.getItem('sliderIndex');
+  if (savedIndex !== null) {
+    moveSliderTo(parseInt(savedIndex)); // moveSliderTo 함수로 슬라이더 이동
+    sessionStorage.removeItem('sliderIndex'); // 이동 끝나면 저장정보 삭제
+  }
+});
 // ------------------- 왕관 차트 관련 JavaScript -------------------
 
 const subHoverSubMapping = {
