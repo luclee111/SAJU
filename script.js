@@ -1179,9 +1179,18 @@ const guideSwiper = new Swiper('.guide-swiper', {
   }
 });
 
+// 안전한 play 시도 함수
+function safePlay(video) {
+  video.play().catch(error => {
+    console.warn('play() 실패', error);
+  });
+}
+
 // help-icon 클릭했을 때
 helpIcon.addEventListener('click', () => {
   guideOverlay.classList.add('active');
+
+  guideSwiper.update(); // ✅ 슬라이더 상태 강제 업데이트
 
   const allVideos = document.querySelectorAll('.guide-video');
   allVideos.forEach(video => {
@@ -1195,26 +1204,16 @@ helpIcon.addEventListener('click', () => {
   if (videoInActiveSlide) {
     clearTimeout(videoTimeout);
 
-    // 🎯 바로 재생 시도 (사용자 클릭 이벤트 직후라 autoplay 제한을 피할 수 있음)
-    videoInActiveSlide.play().catch(error => {
-      console.warn('초기 재생 실패', error);
-    });
-
-    // 🎯 그리고 2초 후에도 한번 더 안전하게 play 시도
-    videoTimeout = setTimeout(() => {
-      videoInActiveSlide.currentTime = 0;
-      videoInActiveSlide.play().catch(error => {
-        console.warn('2초 후 재생 실패', error);
-      });
-    }, 2000);
+    // ✅ 약간 기다렸다가 안전하게 play
+    setTimeout(() => {
+      safePlay(videoInActiveSlide);
+    }, 200);
 
     videoInActiveSlide.onended = () => {
       clearTimeout(videoTimeout);
       videoTimeout = setTimeout(() => {
         videoInActiveSlide.currentTime = 0;
-        videoInActiveSlide.play().catch(error => {
-          console.warn('반복 재생 실패', error);
-        });
+        safePlay(videoInActiveSlide);
       }, 2000);
     };
   }
@@ -1248,18 +1247,14 @@ guideSwiper.on('slideChange', () => {
     clearTimeout(videoTimeout);
 
     videoTimeout = setTimeout(() => {
-      videoInActiveSlide.play().catch(error => {
-        console.warn('슬라이드 변경 후 재생 실패', error);
-      });
+      safePlay(videoInActiveSlide);
     }, 2000);
 
     videoInActiveSlide.onended = () => {
       clearTimeout(videoTimeout);
       videoTimeout = setTimeout(() => {
         videoInActiveSlide.currentTime = 0;
-        videoInActiveSlide.play().catch(error => {
-          console.warn('반복 재생 실패', error);
-        });
+        safePlay(videoInActiveSlide);
       }, 2000);
     };
   }
@@ -1273,4 +1268,5 @@ window.addEventListener('load', function() {
     helpIcon.classList.remove('animate-bounce');
   }, 2000);
 });
+
 
