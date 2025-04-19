@@ -1134,3 +1134,24 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', activateNavItemOnScroll);
     activateNavItemOnScroll(); // 로딩 시 바로 활성화
   });
+
+//slider-help-icon overlay script
+// 도움말 열기
+document.getElementById('slider-help-icon').addEventListener('click', () => {
+  document.getElementById('slider-nav-guide').classList.remove('hidden');
+});
+
+// 도움말 닫기
+document.getElementById('slider-guide-close').addEventListener('click', () => {
+  document.getElementById('slider-nav-guide').classList.add('hidden');
+});
+
+// 슬라이더 안 가이드용 swiper 초기화
+const guideSwiper = new Swiper('.guide-swiper', {
+  loop: false,
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  }
+});
+
