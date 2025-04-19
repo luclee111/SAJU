@@ -1199,3 +1199,49 @@ window.addEventListener('load', function() {
     helpIcon.classList.remove('animate-bounce');
   }, 2000);
 });
+
+// guide-video interaction
+const helpIcon = document.getElementById('slider-help-icon');
+const guideOverlay = document.getElementById('slider-nav-guide');
+const guideCloseBtn = document.getElementById('slider-guide-close');
+const guideVideo = document.getElementById('guide-video');
+
+let restartTimeout = null;
+
+// ❓ 버튼 눌렀을 때
+helpIcon.addEventListener('click', () => {
+  guideOverlay.classList.add('active');
+
+  // 비디오 일단 멈추고
+  guideVideo.pause();
+  guideVideo.currentTime = 0;
+
+  // 2초 후 재생
+  setTimeout(() => {
+    guideVideo.play();
+  }, 2000);
+});
+
+// ✖️ 버튼 눌렀을 때
+guideCloseBtn.addEventListener('click', () => {
+  guideOverlay.classList.remove('active');
+
+  // 비디오도 멈추기
+  guideVideo.pause();
+  guideVideo.currentTime = 0;
+
+  // 혹시 타이머가 남아있으면 클리어
+  if (restartTimeout) {
+    clearTimeout(restartTimeout);
+  }
+});
+
+// 비디오 재생이 끝났을 때
+guideVideo.addEventListener('ended', () => {
+  // 2초 쉬었다가 다시 재생
+  restartTimeout = setTimeout(() => {
+    guideVideo.currentTime = 0;
+    guideVideo.play();
+  }, 2000);
+});
+
