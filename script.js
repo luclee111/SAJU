@@ -158,17 +158,30 @@ window.addEventListener('resize', () => {
 // 초기 상태 설정
 updateSliderPosition();
 
-document.querySelectorAll('.detail-btn').forEach((btn, index) => {
-  btn.addEventListener('click', () => {
-    sessionStorage.setItem('sliderIndex', index); // 현재 슬라이더 인덱스 저장
-  });
-});
-
 document.addEventListener('DOMContentLoaded', () => {
+  const sliderContainer = document.querySelector('.slider-container');
+  const sliderSections = document.querySelectorAll('.slider-container > section');
+  const navItems = document.querySelectorAll('.sidebar-navigation .nav-item');
+
+  // (1) 저장된 슬라이더 인덱스가 있으면 이동
   const savedIndex = sessionStorage.getItem('sliderIndex');
   if (savedIndex !== null) {
-    moveSliderTo(parseInt(savedIndex)); // moveSliderTo 함수로 슬라이더 이동
-    sessionStorage.removeItem('sliderIndex'); // 이동 끝나면 저장정보 삭제
+    moveSliderTo(parseInt(savedIndex));
+    sessionStorage.removeItem('sliderIndex');
+  }
+
+  // (2) 자세히 보기 버튼 클릭 시 현재 슬라이더 인덱스를 저장
+  document.querySelectorAll('.detail-btn').forEach((btn, index) => {
+    btn.addEventListener('click', () => {
+      sessionStorage.setItem('sliderIndex', index);
+    });
+  });
+
+  // (3) 슬라이더 이동 함수
+  function moveSliderTo(index) {
+    const sectionWidth = sliderSections[0].offsetWidth;
+    sliderContainer.style.transform = `translateX(-${index * sectionWidth}px)`;
+    sliderContainer.style.transition = 'transform 0.5s ease';
   }
 });
 // ------------------- 왕관 차트 관련 JavaScript -------------------
