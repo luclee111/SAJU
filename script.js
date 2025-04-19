@@ -1068,17 +1068,13 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // 사이드바 네비게이션 관련
 document.addEventListener('DOMContentLoaded', () => {
-  const landingPage = document.querySelector('.landing-page');
-  const sections = document.querySelectorAll('#slider, #detailed-analysis, #fortune-summary, #final-narrative');
+  const sections = document.querySelectorAll('#landing-content, #slider, #detailed-analysis, #fortune-summary, #final-narrative');
   const navItems = document.querySelectorAll('.sidebar-navigation .nav-item');
 
   function activateNavItemOnScroll() {
     let currentSectionId = '';
 
-    const landingTop = landingPage.getBoundingClientRect().top;
-    const landingBottom = landingPage.getBoundingClientRect().bottom;
-
-    if (landingTop <= window.innerHeight / 2 && landingBottom >= window.innerHeight / 4) {
+    if (window.scrollY === 0) {
       currentSectionId = 'landing-content';
     } else {
       let minDistance = Infinity;
@@ -1104,5 +1100,5 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   window.addEventListener('scroll', activateNavItemOnScroll);
-  activateNavItemOnScroll(); // 로딩 시 바로 active 처리
+  activateNavItemOnScroll(); // ✅ 페이지 로드 직후 강제로 발동
 });
