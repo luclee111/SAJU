@@ -1451,20 +1451,3 @@ body, html {
     display: none; /* 모바일에서 숨김 */
   }
 }
-
-.back-to-slider-button {
-  display: inline-block;
-  margin-top: 30px;
-  padding: 12px 24px;
-  background-color: #4a4a4a;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 8px;
-  font-size: 16px;
-  transition: background-color 0.3s;
-}
-
-.back-to-slider-button:hover {
-  background-color: #222;
-}
-
