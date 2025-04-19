@@ -1569,3 +1569,13 @@ body, html {
   padding: 20px 0; /* 위아래 여백 추가 */
   position: relative; /* 부모를 relative로 */
 }
+
+.guide-video {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover; /* 비율 맞춰 꽉 채우기 */
+  background: #000; /* 비디오 로딩 전에 검은색 배경 */
+  max-height: 250px; /* 필요하면 최대 높이 제한 */
+}
+
