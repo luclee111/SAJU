@@ -1155,23 +1155,60 @@ document.addEventListener('DOMContentLoaded', function () {
   updateActiveNavItem();
 });
 
+// slider-nav-guide ❗ 중복 선언 없애고 한번만 잡자
+// 변수 선언 (중복 없이!)
 const helpIcon = document.getElementById('slider-help-icon');
 const guideOverlay = document.getElementById('slider-nav-guide');
 const guideCloseBtn = document.getElementById('slider-guide-close');
+const guideVideo = document.getElementById('guide-video');
 
+let restartTimeout = null;
+
+// 페이지 처음 로딩할 때 ❓ 아이콘 bounce
+window.addEventListener('load', () => {
+  helpIcon.classList.add('animate-bounce');
+  setTimeout(() => {
+    helpIcon.classList.remove('animate-bounce');
+  }, 2000);
+});
+
+// ❓ 버튼 누르면 가이드 열고 비디오 재생 대기
 helpIcon.addEventListener('click', () => {
   guideOverlay.classList.add('active');
+
+  guideVideo.pause();
+  guideVideo.currentTime = 0;
+
+  setTimeout(() => {
+    guideVideo.play();
+  }, 2000);
 });
 
+// ✖️ 버튼 누르면 가이드 닫고 비디오 멈춤
 guideCloseBtn.addEventListener('click', () => {
   guideOverlay.classList.remove('active');
+
+  guideVideo.pause();
+  guideVideo.currentTime = 0;
+
+  if (restartTimeout) {
+    clearTimeout(restartTimeout);
+  }
 });
 
-// 슬라이더 안 가이드용 swiper 초기화
+// 비디오 끝나면 2초 쉬고 다시 재생
+guideVideo.addEventListener('ended', () => {
+  restartTimeout = setTimeout(() => {
+    guideVideo.currentTime = 0;
+    guideVideo.play();
+  }, 2000);
+});
+
+// 슬라이더 초기화 (변경 없음)
 const guideSwiper = new Swiper('.guide-swiper', {
   loop: false,
-  centeredSlides: true, // 슬라이드 중앙 정렬
-  slidesPerView: 1,      // 기본 1개
+  centeredSlides: true,
+  slidesPerView: 1,
   pagination: {
     el: '.swiper-pagination',
     clickable: true,
@@ -1181,67 +1218,12 @@ const guideSwiper = new Swiper('.guide-swiper', {
     prevEl: '.swiper-button-prev',
   },
   breakpoints: {
-    768: {  // 화면 width 768px 이상일 때
+    768: {
       slidesPerView: 1,
     },
-    1024: { // 화면 width 1024px 이상일 때
+    1024: {
       slidesPerView: 1,
     }
   }
-});
-
-window.addEventListener('load', function() {
-  const helpIcon = document.getElementById('slider-help-icon');
-  helpIcon.classList.add('animate-bounce');
-
-  // 2초 후 bounce class 삭제 (한 번만 튕기게)
-  setTimeout(() => {
-    helpIcon.classList.remove('animate-bounce');
-  }, 2000);
-});
-
-// guide-video interaction
-const helpIcon = document.getElementById('slider-help-icon');
-const guideOverlay = document.getElementById('slider-nav-guide');
-const guideCloseBtn = document.getElementById('slider-guide-close');
-const guideVideo = document.getElementById('guide-video');
-
-let restartTimeout = null;
-
-// ❓ 버튼 눌렀을 때
-helpIcon.addEventListener('click', () => {
-  guideOverlay.classList.add('active');
-
-  // 비디오 일단 멈추고
-  guideVideo.pause();
-  guideVideo.currentTime = 0;
-
-  // 2초 후 재생
-  setTimeout(() => {
-    guideVideo.play();
-  }, 2000);
-});
-
-// ✖️ 버튼 눌렀을 때
-guideCloseBtn.addEventListener('click', () => {
-  guideOverlay.classList.remove('active');
-
-  // 비디오도 멈추기
-  guideVideo.pause();
-  guideVideo.currentTime = 0;
-
-  // 혹시 타이머가 남아있으면 클리어
-  if (restartTimeout) {
-    clearTimeout(restartTimeout);
-  }
-});
-
-// 비디오 재생이 끝났을 때
-guideVideo.addEventListener('ended', () => {
-  // 2초 쉬었다가 다시 재생
-  restartTimeout = setTimeout(() => {
-    guideVideo.currentTime = 0;
-    guideVideo.play();
-  }, 2000);
 });
 
