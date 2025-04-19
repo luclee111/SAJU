@@ -1158,20 +1158,48 @@ document.addEventListener('DOMContentLoaded', function () {
 const helpIcon = document.getElementById('slider-help-icon');
 const guideOverlay = document.getElementById('slider-nav-guide');
 const guideCloseBtn = document.getElementById('slider-guide-close');
+let videoTimeout; // setTimeout 제어용
 
+// help-icon 클릭했을 때
 helpIcon.addEventListener('click', () => {
   guideOverlay.classList.add('active');
+
+  const video = document.querySelector('.guide-video');
+  if (video) {
+    clearTimeout(videoTimeout);  // 혹시 남아있던 타이머 있으면 삭제
+    video.pause();
+    video.currentTime = 0;       // 항상 처음으로 리셋
+    videoTimeout = setTimeout(() => {
+      video.play();
+    }, 2000); // 2초 후 재생
+
+    video.onended = () => {
+      clearTimeout(videoTimeout);
+      videoTimeout = setTimeout(() => {
+        video.currentTime = 0;
+        video.play();
+      }, 2000); // 끝난 후 2초 쉬고 다시 재생
+    };
+  }
 });
 
+// guide 닫기 버튼
 guideCloseBtn.addEventListener('click', () => {
   guideOverlay.classList.remove('active');
+
+  const video = document.querySelector('.guide-video');
+  if (video) {
+    video.pause();
+    video.currentTime = 0;
+    clearTimeout(videoTimeout);
+  }
 });
 
-// 슬라이더 안 가이드용 swiper 초기화
+// 슬라이더 초기화
 const guideSwiper = new Swiper('.guide-swiper', {
   loop: false,
-  centeredSlides: true, // 슬라이드 중앙 정렬
-  slidesPerView: 1,      // 기본 1개
+  centeredSlides: true,
+  slidesPerView: 1,
   pagination: {
     el: '.swiper-pagination',
     clickable: true,
@@ -1181,20 +1209,19 @@ const guideSwiper = new Swiper('.guide-swiper', {
     prevEl: '.swiper-button-prev',
   },
   breakpoints: {
-    768: {  // 화면 width 768px 이상일 때
+    768: {
       slidesPerView: 1,
     },
-    1024: { // 화면 width 1024px 이상일 때
+    1024: {
       slidesPerView: 1,
     }
   }
 });
 
+// 페이지 로드 시 help-icon bounce 애니메이션
 window.addEventListener('load', function() {
-  const helpIcon = document.getElementById('slider-help-icon');
   helpIcon.classList.add('animate-bounce');
 
-  // 2초 후 bounce class 삭제 (한 번만 튕기게)
   setTimeout(() => {
     helpIcon.classList.remove('animate-bounce');
   }, 2000);
