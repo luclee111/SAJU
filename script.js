@@ -1158,44 +1158,9 @@ document.addEventListener('DOMContentLoaded', function () {
 const helpIcon = document.getElementById('slider-help-icon');
 const guideOverlay = document.getElementById('slider-nav-guide');
 const guideCloseBtn = document.getElementById('slider-guide-close');
-let videoTimeout; // setTimeout 제어용
+let videoTimeout; // setTimeout 관리용
 
-// help-icon 클릭했을 때
-helpIcon.addEventListener('click', () => {
-  guideOverlay.classList.add('active');
-
-  const video = document.querySelector('.guide-video');
-  if (video) {
-    clearTimeout(videoTimeout);  // 혹시 남아있던 타이머 있으면 삭제
-    video.pause();
-    video.currentTime = 0;       // 항상 처음으로 리셋
-    videoTimeout = setTimeout(() => {
-      video.play();
-    }, 2000); // 2초 후 재생
-
-    video.onended = () => {
-      clearTimeout(videoTimeout);
-      videoTimeout = setTimeout(() => {
-        video.currentTime = 0;
-        video.play();
-      }, 2000); // 끝난 후 2초 쉬고 다시 재생
-    };
-  }
-});
-
-// guide 닫기 버튼
-guideCloseBtn.addEventListener('click', () => {
-  guideOverlay.classList.remove('active');
-
-  const video = document.querySelector('.guide-video');
-  if (video) {
-    video.pause();
-    video.currentTime = 0;
-    clearTimeout(videoTimeout);
-  }
-});
-
-// 슬라이더 초기화
+// Swiper 슬라이더 초기화
 const guideSwiper = new Swiper('.guide-swiper', {
   loop: false,
   centeredSlides: true,
@@ -1218,6 +1183,75 @@ const guideSwiper = new Swiper('.guide-swiper', {
   }
 });
 
+// help-icon 클릭했을 때
+helpIcon.addEventListener('click', () => {
+  guideOverlay.classList.add('active');
+
+  const allVideos = document.querySelectorAll('.guide-video');
+  allVideos.forEach(video => {
+    video.pause();
+    video.currentTime = 0;
+  });
+
+  const activeSlide = guideSwiper.slides[guideSwiper.activeIndex];
+  const videoInActiveSlide = activeSlide.querySelector('.guide-video');
+
+  if (videoInActiveSlide) {
+    clearTimeout(videoTimeout);
+    videoTimeout = setTimeout(() => {
+      videoInActiveSlide.play();
+    }, 2000);
+
+    videoInActiveSlide.onended = () => {
+      clearTimeout(videoTimeout);
+      videoTimeout = setTimeout(() => {
+        videoInActiveSlide.currentTime = 0;
+        videoInActiveSlide.play();
+      }, 2000);
+    };
+  }
+});
+
+// 가이드 닫기 버튼 클릭했을 때
+guideCloseBtn.addEventListener('click', () => {
+  guideOverlay.classList.remove('active');
+
+  const allVideos = document.querySelectorAll('.guide-video');
+  allVideos.forEach(video => {
+    video.pause();
+    video.currentTime = 0;
+  });
+
+  clearTimeout(videoTimeout);
+});
+
+// 슬라이드가 변경될 때마다 동영상 컨트롤
+guideSwiper.on('slideChange', () => {
+  const allVideos = document.querySelectorAll('.guide-video');
+  allVideos.forEach(video => {
+    video.pause();
+    video.currentTime = 0;
+  });
+
+  const activeSlide = guideSwiper.slides[guideSwiper.activeIndex];
+  const videoInActiveSlide = activeSlide.querySelector('.guide-video');
+
+  if (videoInActiveSlide) {
+    clearTimeout(videoTimeout);
+    videoTimeout = setTimeout(() => {
+      videoInActiveSlide.play();
+    }, 2000);
+
+    videoInActiveSlide.onended = () => {
+      clearTimeout(videoTimeout);
+      videoTimeout = setTimeout(() => {
+        videoInActiveSlide.currentTime = 0;
+        videoInActiveSlide.play();
+      }, 2000);
+    };
+  }
+});
+
 // 페이지 로드 시 help-icon bounce 애니메이션
 window.addEventListener('load', function() {
   helpIcon.classList.add('animate-bounce');
@@ -1226,3 +1260,4 @@ window.addEventListener('load', function() {
     helpIcon.classList.remove('animate-bounce');
   }, 2000);
 });
+
