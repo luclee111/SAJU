@@ -1457,8 +1457,8 @@ body, html {
 /* 도움말 아이콘 */
 #slider-help-icon {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 13%;
+  right: 5%;
   width: 50px;
   height: 50px;
   background: rgba(0,0,0,0.7);
@@ -1495,7 +1495,7 @@ body, html {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 90%;
-  max-width: 400px;
+  max-width: 700px;
   background: rgba(30,30,30,0.95);
   border-radius: 20px;
   padding: 20px;
@@ -1552,7 +1552,7 @@ body, html {
 .guide-img {
   width: 100%;
   height: auto;
-  max-height: 250px;
+  max-height: 400px;
   object-fit: contain;
 }
 
