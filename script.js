@@ -1100,27 +1100,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
   
   // 사이드바 네비게이션 관련
-document.addEventListener('DOMContentLoaded', function() {
-    const sections = document.querySelectorAll('#landing-content, #slider, #detailed-analysis, #fortune-summary, #final-narrative');
-    const navItems = document.querySelectorAll('.sidebar-navigation .nav-item');
+document.addEventListener('DOMContentLoaded', function () {
+  const sections = document.querySelectorAll('#landing-content, #slider, #detailed-analysis, #fortune-summary, #final-narrative');
+  const navItems = document.querySelectorAll('.sidebar-navigation .nav-item');
+  
+  let ticking = false; // requestAnimationFrame 제어용
+  let currentSectionId = null; // 현재 활성화된 섹션 저장
+  
+  function updateActiveNavItem() {
+    let minDistance = Infinity;
+    let newCurrentSectionId = '';
+    const triggerLine = window.innerHeight / 2; // 화면 중앙 기준
 
-    function activateNavItemOnScroll() {
-      let currentSectionId = '';
-      let minDistance = Infinity;
-      const triggerLine = window.innerHeight / 2; // 화면 중간
+    sections.forEach(section => {
+      const rectTop = section.getBoundingClientRect().top;
 
-      sections.forEach(section => {
-        const rectTop = section.getBoundingClientRect().top;
-
-        if (rectTop <= triggerLine && rectTop > -section.offsetHeight / 2) {
-          const distance = Math.abs(rectTop - triggerLine);
-          if (distance < minDistance) {
-            minDistance = distance;
-            currentSectionId = section.getAttribute('id');
-          }
+      if (rectTop <= triggerLine && rectTop > -section.offsetHeight / 2) {
+        const distance = Math.abs(rectTop - triggerLine);
+        if (distance < minDistance) {
+          minDistance = distance;
+          newCurrentSectionId = section.getAttribute('id');
         }
-      });
+      }
+    });
 
+    // 만약 섹션이 변경되었다면만 업데이트
+    if (newCurrentSectionId !== currentSectionId) {
+      currentSectionId = newCurrentSectionId;
+      
       navItems.forEach(item => {
         const itemSection = item.getAttribute('data-section');
         if (itemSection === currentSectionId) {
@@ -1130,10 +1137,23 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
     }
+  }
 
-    window.addEventListener('scroll', activateNavItemOnScroll);
-    activateNavItemOnScroll(); // 로딩 시 바로 활성화
-  });
+  function onScroll() {
+    if (!ticking) {
+      window.requestAnimationFrame(function () {
+        updateActiveNavItem();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }
+
+  window.addEventListener('scroll', onScroll);
+
+  // 페이지 로딩 직후에도 한 번 바로 체크
+  updateActiveNavItem();
+});
 
 //slider-help-icon overlay script
 // 도움말 열기
