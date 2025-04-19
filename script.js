@@ -163,19 +163,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const sliderSections = document.querySelectorAll('.slider-container > section');
   const navItems = document.querySelectorAll('.sidebar-navigation .nav-item');
 
-  // (1) 저장된 슬라이더 인덱스가 있으면 이동
-  const savedIndex = sessionStorage.getItem('sliderIndex');
-  if (savedIndex !== null) {
-    moveSliderTo(parseInt(savedIndex));
-    sessionStorage.removeItem('sliderIndex');
-  }
-
-  // (2) 자세히 보기 버튼 클릭 시 현재 슬라이더 인덱스를 저장
-  document.querySelectorAll('.detail-btn').forEach((btn, index) => {
+  // (1) "자세히 보기" 버튼 클릭하면 자신이 속한 슬라이더 섹션 index 저장
+  document.querySelectorAll('.detail-btn').forEach((btn) => {
     btn.addEventListener('click', () => {
+      const parentSection = btn.closest('section');
+      const index = Array.from(sliderSections).indexOf(parentSection);
       sessionStorage.setItem('sliderIndex', index);
     });
   });
+
+  // (2) index.html 로딩 시 저장된 인덱스가 있으면 슬라이더 이동
+  const savedIndex = sessionStorage.getItem('sliderIndex');
+  if (savedIndex !== null) {
+    moveSliderTo(parseInt(savedIndex));
+    sessionStorage.removeItem('sliderIndex'); // 이동 후 세션 정리
+  }
 
   // (3) 슬라이더 이동 함수
   function moveSliderTo(index) {
