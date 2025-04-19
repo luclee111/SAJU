@@ -1174,12 +1174,8 @@ const guideSwiper = new Swiper('.guide-swiper', {
     prevEl: '.swiper-button-prev',
   },
   breakpoints: {
-    768: {
-      slidesPerView: 1,
-    },
-    1024: {
-      slidesPerView: 1,
-    }
+    768: { slidesPerView: 1 },
+    1024: { slidesPerView: 1 }
   }
 });
 
@@ -1198,15 +1194,27 @@ helpIcon.addEventListener('click', () => {
 
   if (videoInActiveSlide) {
     clearTimeout(videoTimeout);
+
+    // 🎯 바로 재생 시도 (사용자 클릭 이벤트 직후라 autoplay 제한을 피할 수 있음)
+    videoInActiveSlide.play().catch(error => {
+      console.warn('초기 재생 실패', error);
+    });
+
+    // 🎯 그리고 2초 후에도 한번 더 안전하게 play 시도
     videoTimeout = setTimeout(() => {
-      videoInActiveSlide.play();
+      videoInActiveSlide.currentTime = 0;
+      videoInActiveSlide.play().catch(error => {
+        console.warn('2초 후 재생 실패', error);
+      });
     }, 2000);
 
     videoInActiveSlide.onended = () => {
       clearTimeout(videoTimeout);
       videoTimeout = setTimeout(() => {
         videoInActiveSlide.currentTime = 0;
-        videoInActiveSlide.play();
+        videoInActiveSlide.play().catch(error => {
+          console.warn('반복 재생 실패', error);
+        });
       }, 2000);
     };
   }
@@ -1238,15 +1246,20 @@ guideSwiper.on('slideChange', () => {
 
   if (videoInActiveSlide) {
     clearTimeout(videoTimeout);
+
     videoTimeout = setTimeout(() => {
-      videoInActiveSlide.play();
+      videoInActiveSlide.play().catch(error => {
+        console.warn('슬라이드 변경 후 재생 실패', error);
+      });
     }, 2000);
 
     videoInActiveSlide.onended = () => {
       clearTimeout(videoTimeout);
       videoTimeout = setTimeout(() => {
         videoInActiveSlide.currentTime = 0;
-        videoInActiveSlide.play();
+        videoInActiveSlide.play().catch(error => {
+          console.warn('반복 재생 실패', error);
+        });
       }, 2000);
     };
   }
