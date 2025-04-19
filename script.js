@@ -1068,20 +1068,30 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // 사이드바 네비게이션 관련
 document.addEventListener('DOMContentLoaded', () => {
-  const sections = document.querySelectorAll('#landing-content, #slider, #detailed-analysis, #fortune-summary, #final-narrative');
+  const landingPage = document.querySelector('.landing-page');
+  const sections = document.querySelectorAll('#slider, #detailed-analysis, #fortune-summary, #final-narrative');
   const navItems = document.querySelectorAll('.sidebar-navigation .nav-item');
 
   function activateNavItemOnScroll() {
-    let currentSectionId = 'landing-content'; // 기본값을 landing-content로 세팅
+    let currentSectionId = '';
 
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.offsetHeight;
+    const landingTop = landingPage.getBoundingClientRect().top;
+    const landingBottom = landingPage.getBoundingClientRect().bottom;
 
-      if (window.scrollY >= sectionTop - window.innerHeight / 3) {
-        currentSectionId = section.getAttribute('id');
-      }
-    });
+    if (landingTop <= window.innerHeight / 2 && landingBottom >= window.innerHeight / 4) {
+      currentSectionId = 'landing-content';
+    } else {
+      let minDistance = Infinity;
+
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+
+        if (sectionTop >= 0 && sectionTop < minDistance) {
+          minDistance = sectionTop;
+          currentSectionId = section.getAttribute('id');
+        }
+      });
+    }
 
     navItems.forEach(item => {
       const itemSection = item.getAttribute('data-section');
@@ -1093,16 +1103,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ✨ 페이지 로딩 직후에도 활성화
-  activateNavItemOnScroll();
-
   window.addEventListener('scroll', activateNavItemOnScroll);
-
-  // 클릭 시에도 살짝 딜레이 주고 강제 갱신
-  navItems.forEach(item => {
-    const link = item.querySelector('a');
-    link.addEventListener('click', () => {
-      setTimeout(activateNavItemOnScroll, 300);
-    });
-  });
+  activateNavItemOnScroll(); // 로딩 시 바로 active 처리
 });
