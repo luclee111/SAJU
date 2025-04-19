@@ -112,7 +112,7 @@ body, html {
 .menu ul {
   list-style: none;
   display: flex;
-  gap: 40px;
+  gap: 30px;
   align-items: center; /* 메뉴 항목을 세로 중앙 정렬*/
   justify-content: center; /* 메뉴 중앙 정렬 */
   margin: 0;
@@ -126,6 +126,7 @@ body, html {
   color: gray;
   padding: 5px 35px;
   transition: color 0.3s ease, background-color 0.3s ease;
+  white-space: nowrap;
 }
 
 .menu-item.active a {
