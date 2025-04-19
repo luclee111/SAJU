@@ -1190,3 +1190,12 @@ const guideSwiper = new Swiper('.guide-swiper', {
   }
 });
 
+window.addEventListener('load', function() {
+  const helpIcon = document.getElementById('slider-help-icon');
+  helpIcon.classList.add('animate-bounce');
+
+  // 2초 후 bounce class 삭제 (한 번만 튕기게)
+  setTimeout(() => {
+    helpIcon.classList.remove('animate-bounce');
+  }, 2000);
+});
