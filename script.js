@@ -1169,14 +1169,6 @@ guideCloseBtn.addEventListener('click', () => {
 
 // 슬라이더 안 가이드용 swiper 초기화
 const guideSwiper = new Swiper('.guide-swiper', {
-  loop: false,
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-  }
-});
-
-const guideSwiper = new Swiper('.guide-swiper', {
   loop: true,
   centeredSlides: true, // 슬라이드 중앙 정렬
   slidesPerView: 1,      // 기본 1개
