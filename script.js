@@ -1180,10 +1180,6 @@ const guideSwiper = new Swiper('.guide-swiper', {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
   },
-  autoplay: {
-    delay: 3000,
-    disableOnInteraction: false,
-  },
   breakpoints: {
     768: {  // 화면 width 768px 이상일 때
       slidesPerView: 1,
