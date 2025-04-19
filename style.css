@@ -1452,3 +1452,69 @@ body, html {
     display: none; /* 모바일에서 숨김 */
   }
 }
+
+// slider-help-icon overlay style
+/* 슬라이더 안의 도움말 아이콘 */
+#slider-help-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* 작은 가이드 팝업 */
+.slider-nav-guide {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 400px;
+  background: rgba(30,30,30,0.95);
+  border-radius: 20px;
+  padding: 20px;
+  z-index: 20;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 처음엔 숨기기 */
+.hidden {
+  display: none;
+}
+
+/* 가이드 안쪽 컨텐츠 */
+.slider-guide-content {
+  text-align: center;
+  position: relative;
+}
+
+.slider-guide-content img.guide-img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+.slider-guide-content .guide-text {
+  color: white;
+  font-size: 1.2rem;
+}
+
+/* 닫기 버튼 */
+#slider-guide-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  color: white;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
