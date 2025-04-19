@@ -145,24 +145,33 @@
         ❓
        </div>
 
-      <div id="slider-nav-guide" class="slider-nav-guide">
-        <div class="slider-guide-content">
-          <button id="slider-guide-close">✖</button>
-          <div class="swiper-container guide-swiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <img src="images/Logo.png" class="guide-img">
-                <p class="guide-text">중앙 하단 버튼을 이용하세요</p>
+       <div id="slider-nav-guide" class="slider-nav-guide">
+            <div class="slider-guide-content">
+              <button id="slider-guide-close">✖</button>
+          
+              <div class="swiper-container guide-swiper"> <!-- ✅ 여기 swiper-container 아니라 swiper 클래스만 -->
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <img src="images/Logo.png" class="guide-img">
+                    <p class="guide-text">중앙 하단 버튼을 이용하세요</p>
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="images/Logo.png" class="guide-img">
+                    <p class="guide-text">화살표로 슬라이드 넘기기</p>
+                  </div>
+                </div>
+          
+                <!-- 페이징 점점점 표시 -->
+                <div class="swiper-pagination guide-pagination"></div>
+          
+                <!-- 좌우 화살표 표시 (선택) -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
               </div>
-              <div class="swiper-slide">
-                <img src="images/Logo.png" class="guide-img">
-                <p class="guide-text">화살표로 슬라이드 넘기기</p>
-              </div>
+          
             </div>
-            <div class="swiper-pagination"></div>
-          </div>
-        </div>
-      </div>
+    </div>
+
       
       <h2>주인공 소개</h2>
       <p>나는 어떤 기운을 타고났을까?</p>
