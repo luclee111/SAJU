@@ -1067,38 +1067,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
   
   // 사이드바 네비게이션 관련
-document.addEventListener('DOMContentLoaded', () => {
-  const sections = document.querySelectorAll('#landing-content, #slider, #detailed-analysis, #fortune-summary, #final-narrative');
-  const navItems = document.querySelectorAll('.sidebar-navigation .nav-item');
+document.addEventListener('DOMContentLoaded', function() {
+    const sections = document.querySelectorAll('#landing-content, #slider, #detailed-analysis, #fortune-summary, #final-narrative');
+    const navItems = document.querySelectorAll('.sidebar-navigation .nav-item');
 
-  function activateNavItemOnScroll() {
-    let currentSectionId = '';
-
-    if (window.scrollY === 0) {
-      currentSectionId = 'landing-content';
-    } else {
+    function activateNavItemOnScroll() {
+      let currentSectionId = '';
       let minDistance = Infinity;
+      const triggerLine = window.innerHeight / 2; // 화면 중간
 
       sections.forEach(section => {
-        const sectionTop = section.getBoundingClientRect().top;
+        const rectTop = section.getBoundingClientRect().top;
 
-        if (sectionTop >= 0 && sectionTop < minDistance) {
-          minDistance = sectionTop;
-          currentSectionId = section.getAttribute('id');
+        if (rectTop <= triggerLine && rectTop > -section.offsetHeight / 2) {
+          const distance = Math.abs(rectTop - triggerLine);
+          if (distance < minDistance) {
+            minDistance = distance;
+            currentSectionId = section.getAttribute('id');
+          }
+        }
+      });
+
+      navItems.forEach(item => {
+        const itemSection = item.getAttribute('data-section');
+        if (itemSection === currentSectionId) {
+          item.classList.add('active');
+        } else {
+          item.classList.remove('active');
         }
       });
     }
 
-    navItems.forEach(item => {
-      const itemSection = item.getAttribute('data-section');
-      if (itemSection === currentSectionId) {
-        item.classList.add('active');
-      } else {
-        item.classList.remove('active');
-      }
-    });
-  }
-
-  window.addEventListener('scroll', activateNavItemOnScroll);
-  activateNavItemOnScroll(); // ✅ 페이지 로드 직후 강제로 발동
-});
+    window.addEventListener('scroll', activateNavItemOnScroll);
+    activateNavItemOnScroll(); // 로딩 시 바로 활성화
+  });
