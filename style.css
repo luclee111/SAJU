@@ -315,7 +315,7 @@ section p {
 }
 
 // * Slider style 추가* //
-.slider {
+#slider {
   position: relative;
   width: 100%;
   overflow: hidden;
