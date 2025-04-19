@@ -1157,73 +1157,68 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // slider-nav-guide ❗ 중복 선언 없애고 한번만 잡자
 // 변수 선언 (중복 없이!)
-const helpIcon = document.getElementById('slider-help-icon');
-const guideOverlay = document.getElementById('slider-nav-guide');
-const guideCloseBtn = document.getElementById('slider-guide-close');
-const guideVideo = document.getElementById('guide-video');
+window.addEventListener('load', function() {
+  const helpIcon = document.getElementById('slider-help-icon');
+  const guideOverlay = document.getElementById('slider-nav-guide');
+  const guideCloseBtn = document.getElementById('slider-guide-close');
+  const guideVideo = document.getElementById('guide-video');
 
-let restartTimeout = null;
+  let restartTimeout = null;
 
-// 페이지 처음 로딩할 때 ❓ 아이콘 bounce
-window.addEventListener('load', () => {
+  // 페이지 로딩할 때 ❓ 아이콘 bounce
   helpIcon.classList.add('animate-bounce');
   setTimeout(() => {
     helpIcon.classList.remove('animate-bounce');
   }, 2000);
-});
 
-// ❓ 버튼 누르면 가이드 열고 비디오 재생 대기
-helpIcon.addEventListener('click', () => {
-  guideOverlay.classList.add('active');
+  // ❓ 버튼 눌렀을 때
+  helpIcon.addEventListener('click', () => {
+    guideOverlay.classList.add('active');
 
-  guideVideo.pause();
-  guideVideo.currentTime = 0;
-
-  setTimeout(() => {
-    guideVideo.play();
-  }, 2000);
-});
-
-// ✖️ 버튼 누르면 가이드 닫고 비디오 멈춤
-guideCloseBtn.addEventListener('click', () => {
-  guideOverlay.classList.remove('active');
-
-  guideVideo.pause();
-  guideVideo.currentTime = 0;
-
-  if (restartTimeout) {
-    clearTimeout(restartTimeout);
-  }
-});
-
-// 비디오 끝나면 2초 쉬고 다시 재생
-guideVideo.addEventListener('ended', () => {
-  restartTimeout = setTimeout(() => {
+    guideVideo.pause();
     guideVideo.currentTime = 0;
-    guideVideo.play();
-  }, 2000);
-});
 
-// 슬라이더 초기화 (변경 없음)
-const guideSwiper = new Swiper('.guide-swiper', {
-  loop: false,
-  centeredSlides: true,
-  slidesPerView: 1,
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-  },
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-  breakpoints: {
-    768: {
-      slidesPerView: 1,
-    },
-    1024: {
-      slidesPerView: 1,
+    setTimeout(() => {
+      guideVideo.play();
+    }, 2000);
+  });
+
+  // ✖️ 버튼 눌렀을 때
+  guideCloseBtn.addEventListener('click', () => {
+    guideOverlay.classList.remove('active');
+
+    guideVideo.pause();
+    guideVideo.currentTime = 0;
+
+    if (restartTimeout) {
+      clearTimeout(restartTimeout);
     }
-  }
-});
+  });
 
+  // 비디오 끝나면
+  guideVideo.addEventListener('ended', () => {
+    restartTimeout = setTimeout(() => {
+      guideVideo.currentTime = 0;
+      guideVideo.play();
+    }, 2000);
+  });
+
+  // 슬라이더 초기화
+  const guideSwiper = new Swiper('.guide-swiper', {
+    loop: false,
+    centeredSlides: true,
+    slidesPerView: 1,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    breakpoints: {
+      768: { slidesPerView: 1 },
+      1024: { slidesPerView: 1 }
+    }
+  });
+});
